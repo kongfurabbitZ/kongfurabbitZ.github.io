@@ -110,7 +110,7 @@
 									</li>
 									<li>
 										<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
-										<a href="#">shuibowen@gmail.com</a>
+										<a href="mailto:shuibowen@gmail.com">shuibowen@gmail.com</a>
 									</li>
 								</ul>
 							</div>
@@ -439,19 +439,29 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-wechat"><span class="label">wechat</span></a></li>
-						<li><a href="#" class="icon fa-linkedin"><span class="label">wechat</span></a></li>
-						<li><a href="#" class="icon fa-qq"><span class="label">QQ</span></a></li>
-						<li><a href="#" class="icon fa-steam"><span class="label">Steam</span></a></li>
-						<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; China</li><li>Design: <a href="http://www.rabbitt.cn">Bowen Qu</a></li>
-					</ul>
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="#wechat-qr" class="icon fa-wechat" aria-label="打开微信二维码"><span class="label">WeChat</span></a></li>
+							<li><a href="https://www.linkedin.com/in/qubowen/" class="icon fa-linkedin" target="_blank" rel="noopener noreferrer" aria-label="打开领英公开档案"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://wpa.qq.com/msgrd?v=3&amp;uin=328495045&amp;site=qq&amp;menu=yes" class="icon fa-qq" target="_blank" rel="noopener noreferrer" aria-label="通过 QQ 联系我"><span class="label">QQ</span></a></li>
+							<li><a href="https://steamcommunity.com/search/users/#text=bowen88500" class="icon fa-steam" target="_blank" rel="noopener noreferrer" aria-label="在 Steam 搜索 bowen88500"><span class="label">Steam</span></a></li>
+							<li><a href="mailto:shuibowen@gmail.com" class="icon fa-envelope-o" aria-label="发送邮件"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; China</li><li>Design: <a href="http://www.rabbitt.cn">Bowen Qu</a></li>
+						</ul>
+					</div>
+				</footer>
+
+			<div id="wechat-qr" class="wechat-modal" role="dialog" aria-modal="true" aria-labelledby="wechat-qr-title">
+				<a href="#footer" class="wechat-modal__backdrop" aria-label="关闭微信二维码"></a>
+				<div class="wechat-modal__panel">
+					<a href="#footer" class="wechat-modal__close" aria-label="关闭微信二维码">&times;</a>
+					<h2 id="wechat-qr-title">微信</h2>
+					<img src="images/wechat-qr.jpeg" alt="Bowen Qu 微信二维码" />
+					<p>扫码添加微信</p>
 				</div>
-			</footer>
+			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
