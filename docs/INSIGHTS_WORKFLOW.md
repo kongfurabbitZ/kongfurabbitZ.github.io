@@ -29,3 +29,7 @@ python3 -B scripts/public_insights.py --repo . --article /本机工作区/public
 研究笔记与公开文章分开。站点只保存可公开材料，不持有 Notion 令牌，不发布私人行动、内部组织数据、本地路径、私有页面链接或默认上传原报告全文。原图需要单独确认转载依据。公开稿保留来源和证据边界。
 
 回退通过新提交恢复上一版，不改写历史。
+
+## 自动上线检查
+
+.github/workflows/verify-insights.yml在GitHub Pages部署成功后执行scripts/verify_public_insights.py。它实际请求站点，将首页、文章目录、各篇正文、样式与RSS逐字节比对部署提交中的文件，并验证目录链接和正文身份。结果以INSIGHTS_LIVE_VERIFICATION输出到job日志；它不持有私密数据或凭据。HTTP检查与浏览器视觉验收分开记录。

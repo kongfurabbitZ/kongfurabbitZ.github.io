@@ -1,0 +1,31 @@
+name: Verify published report insights
+
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-live:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      VERIFY_COMMIT: ${{ github.event.workflow_run.head_sha || github.sha }}
+      VERIFY_REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Fetch verifier from the deployed commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --location --max-time 30 "https://raw.githubusercontent.com/$VERIFY_REPOSITORY/$VERIFY_COMMIT/scripts/verify_public_insights.py" --output "$RUNNER_TEMP/verify_public_insights.py"
+      - name: Check homepage, archive, articles, stylesheet and RSS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -B "$RUNNER_TEMP/verify_public_insights.py" --repository "$VERIFY_REPOSITORY" --commit "$VERIFY_COMMIT" --output "$RUNNER_TEMP/live_readback.json"
