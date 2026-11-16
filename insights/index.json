@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "articles": [
+    {
+      "slug": "ai-saved-time-to-value",
+      "source_id": "bfa77e40d9a1eaa6a9ff4135452d52719033874e3c98f764f5859150256d399b",
+      "title": "AI 省下的时间，为什么没有自动变成价值？",
+      "description": "任务变快，只是变化的起点。从时间碎片、流程瓶颈到结果验证，重新理解 AI 提效与真正收益之间的距离。",
+      "published": "2026-11-16",
+      "updated": "2026-11-16",
+      "tags": [
+        "AI",
+        "生产率",
+        "组织管理"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/ai-saved-time-to-value/",
+      "content_sha256": "b09e4400beb8e121bb25abf6d900d46494d7e695463fe36509c88ffbf5b1bbd4"
+    }
+  ]
+}
