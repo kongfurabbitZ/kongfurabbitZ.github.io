@@ -32,4 +32,4 @@ python3 -B scripts/public_insights.py --repo . --article /本机工作区/public
 
 ## 自动上线检查
 
-.github/workflows/verify-insights.yml在GitHub Pages部署成功后执行scripts/verify_public_insights.py。它实际请求站点，将首页、文章目录、各篇正文、样式与RSS逐字节比对部署提交中的文件，并验证目录链接和正文身份。结果以INSIGHTS_LIVE_VERIFICATION输出到job日志；它不持有私密数据或凭据。HTTP检查与浏览器视觉验收分开记录。
+.github/workflows/verify-insights.yml在master更新时启动，等待GitHub Pages内容生效后执行scripts/verify_public_insights.py。它实际请求站点，将首页、文章目录、各篇正文、样式与RSS逐字节比对部署提交中的文件，并验证目录链接和正文身份。结果以INSIGHTS_LIVE_VERIFICATION输出到job日志；它不持有私密数据或凭据。HTTP检查与浏览器视觉验收分开记录。

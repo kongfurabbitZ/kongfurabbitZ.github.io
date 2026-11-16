@@ -1,9 +1,7 @@
 name: Verify published report insights
 
 on:
-  workflow_run:
-    workflows: ["pages build and deployment"]
-    types: [completed]
+  push:
     branches: [master]
   workflow_dispatch:
 
@@ -12,11 +10,10 @@ permissions:
 
 jobs:
   verify-live:
-    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 6
     env:
-      VERIFY_COMMIT: ${{ github.event.workflow_run.head_sha || github.sha }}
+      VERIFY_COMMIT: ${{ github.sha }}
       VERIFY_REPOSITORY: ${{ github.repository }}
     steps:
       - name: Fetch verifier from the deployed commit
