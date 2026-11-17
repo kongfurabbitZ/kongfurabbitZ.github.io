@@ -2,6 +2,21 @@
   "schema_version": 1,
   "articles": [
     {
+      "slug": "frontline-technology-workflow-value-2026",
+      "source_id": "98e9570842dcaf95e9104c06cfa2a402b7bdfd32c9a342a13543db50d1c1611e",
+      "title": "一线员工技术：从班次和工位出发，判断AI与平台的价值",
+      "description": "解读Drake Star 2026市场报告：厘清一线技术的流程边界，审计大型交易与融资分类，并用真实工作结果决定自动化和采购。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "一线工作",
+        "企业技术",
+        "AI治理"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/frontline-technology-workflow-value-2026/",
+      "content_sha256": "d2498cb9d69ec227ac390a52e3f3d138f2e3f81b54127713cae7a25ef197c7d7"
+    },
+    {
       "slug": "ai-saved-time-to-value",
       "source_id": "bfa77e40d9a1eaa6a9ff4135452d52719033874e3c98f764f5859150256d399b",
       "title": "AI 省下的时间，为什么没有自动变成价值？",
