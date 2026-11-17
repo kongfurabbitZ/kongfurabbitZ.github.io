@@ -47,6 +47,21 @@
       "content_sha256": "51e58757c388e77e0a83936ae36efd2e901865081ac588e59422ee56a2cb8b49"
     },
     {
+      "slug": "ai-first-cfo-capital-decisions-value-2026",
+      "source_id": "a434eacabe62e7d6b0e9d19eb7ad880e0b90fddf8ca228cd087aea0b2e9d6764",
+      "title": "AI优先CFO：让证据改变决策，让资源跟上结果",
+      "description": "从IBM的1500名财务高管调查出发，审视决策权限、资金再配置和价值兑现，并厘清23%增长差异与25倍模型主张的证据边界。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "财务治理",
+        "AI价值",
+        "资本配置"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/ai-first-cfo-capital-decisions-value-2026/",
+      "content_sha256": "64291a9cedf4e2ad3d53949e624e66fa3ed5cc3bf4f0118820ef6d75e0439adf"
+    },
+    {
       "slug": "ai-saved-time-to-value",
       "source_id": "bfa77e40d9a1eaa6a9ff4135452d52719033874e3c98f764f5859150256d399b",
       "title": "AI 省下的时间，为什么没有自动变成价值？",
