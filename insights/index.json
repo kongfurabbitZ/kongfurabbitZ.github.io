@@ -47,6 +47,21 @@
       "content_sha256": "d2498cb9d69ec227ac390a52e3f3d138f2e3f81b54127713cae7a25ef197c7d7"
     },
     {
+      "slug": "enterprise-ai-spend-task-value-menlo-2026",
+      "source_id": "d612968280271e165ec8d9046d013295c54ca1727030d425204eaf7c10158926",
+      "title": "企业AI支出进入千亿美元之后，怎样验证一项任务的价值",
+      "description": "阅读Menlo Ventures企业AI现状2026，区分年化市场规模、渠道Token和企业净收益，用任务条件与全成本检验智能体扩展。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "企业AI",
+        "智能体",
+        "任务经济性"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/enterprise-ai-spend-task-value-menlo-2026/",
+      "content_sha256": "a71eaaf69dc2b703eab101ca8841cdb7e0af19e1fc8eff8f2f375dafdc98915d"
+    },
+    {
       "slug": "enterprise-ai-agents-production-readiness-2026",
       "source_id": "61fccad4959fc956bf0a058602513cc220870776fa65f8766470a0f9353fe13b",
       "title": "企业智能体从试点到生产：先把条件、责任和价值讲清楚",
