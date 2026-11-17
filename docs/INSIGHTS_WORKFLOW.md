@@ -33,3 +33,9 @@ python3 -B scripts/public_insights.py --repo . --article /本机工作区/public
 ## 自动上线检查
 
 .github/workflows/verify-insights.yml在master更新时启动，等待GitHub Pages内容生效后执行scripts/verify_public_insights.py。它实际请求站点，将首页、文章目录、各篇正文、样式与RSS逐字节比对部署提交中的文件，并验证目录链接和正文身份。结果以INSIGHTS_LIVE_VERIFICATION输出到job日志；它不持有私密数据或凭据。HTTP检查与浏览器视觉验收分开记录。
+
+## 全站视觉与栏目（2026-11-17）
+
+沿用主页现有 Strata 风格。目录与正文由渲染器从当前 index.html 复用头像、个人介绍和社交页脚，链接转为根路径，统一加载 assets/css/main.css；assets/css/insights.css 只做阅读排版补充，不另设独立主题。修改主页个人介绍后，重新构建即可同步全部文章。
+
+首页仅保留有真实内容的介绍、报告洞察及联系方式；不恢复模板卡片、空栏目或未接通的留言表单。后续随着真实内容增加，再逐步调整栏目与全站视觉。
