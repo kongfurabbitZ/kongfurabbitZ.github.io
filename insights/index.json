@@ -17,6 +17,21 @@
       "content_sha256": "d2498cb9d69ec227ac390a52e3f3d138f2e3f81b54127713cae7a25ef197c7d7"
     },
     {
+      "slug": "enterprise-ai-agents-production-readiness-2026",
+      "source_id": "61fccad4959fc956bf0a058602513cc220870776fa65f8766470a0f9353fe13b",
+      "title": "企业智能体从试点到生产：先把条件、责任和价值讲清楚",
+      "description": "从Everest Group的112家大型企业调查出发，区分预期与结果，检查试点转生产、资金口径和持续运行条件，并保留更简单的替代方案。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "企业智能体",
+        "AI治理",
+        "价值验证"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/enterprise-ai-agents-production-readiness-2026/",
+      "content_sha256": "51e58757c388e77e0a83936ae36efd2e901865081ac588e59422ee56a2cb8b49"
+    },
+    {
       "slug": "ai-saved-time-to-value",
       "source_id": "bfa77e40d9a1eaa6a9ff4135452d52719033874e3c98f764f5859150256d399b",
       "title": "AI 省下的时间，为什么没有自动变成价值？",
