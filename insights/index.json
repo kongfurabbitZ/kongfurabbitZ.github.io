@@ -2,6 +2,21 @@
   "schema_version": 1,
   "articles": [
     {
+      "slug": "physical-ai-manufacturing-readiness-2026",
+      "source_id": "728b6e98b7c66474adcd4e9681ef8f98c95beef19984350b87e8d74752f46083",
+      "title": "物理AI规模化：先证明持续运行，再验证第二现场",
+      "description": "从TCS的300家制造企业调查出发，区分试验、部署与业务结果，审视数据、集成、技能和责任，并用全成本与第二现场检验规模化。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "物理AI",
+        "制造业",
+        "规模化验证"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/physical-ai-manufacturing-readiness-2026/",
+      "content_sha256": "f36035ea4bb6fc59384f7cdb8455309f998f28a86ae38e5e9acaa170a784a22d"
+    },
+    {
       "slug": "frontline-technology-workflow-value-2026",
       "source_id": "98e9570842dcaf95e9104c06cfa2a402b7bdfd32c9a342a13543db50d1c1611e",
       "title": "一线员工技术：从班次和工位出发，判断AI与平台的价值",
