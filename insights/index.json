@@ -62,6 +62,21 @@
       "content_sha256": "64291a9cedf4e2ad3d53949e624e66fa3ed5cc3bf4f0118820ef6d75e0439adf"
     },
     {
+      "slug": "agentic-it-platform-accountability-review-capacity-2026",
+      "source_id": "4d97f03471ce629c4d7710cafa554dff241d1501d149dcce770c743d1a4ff175",
+      "title": "智能体平台扩展之前，先让责任和审查能力跟上",
+      "description": "从Oliver Wyman的平台运营模式报告出发，区分三类平台、六项运行能力和五项组织建议，检验成本、停止权及审查积压的边界。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "平台运营",
+        "智能体治理",
+        "审查能力"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/agentic-it-platform-accountability-review-capacity-2026/",
+      "content_sha256": "68cb54a02714fef8e149e74cd0a6fb50f6beed9eac4d7a0e30f85e6c1f4d1716"
+    },
+    {
       "slug": "ai-saved-time-to-value",
       "source_id": "bfa77e40d9a1eaa6a9ff4135452d52719033874e3c98f764f5859150256d399b",
       "title": "AI 省下的时间，为什么没有自动变成价值？",
