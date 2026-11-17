@@ -2,6 +2,21 @@
   "schema_version": 1,
   "articles": [
     {
+      "slug": "responsible-ai-governance-principles-to-evidence-2025",
+      "source_id": "8ca892cbdc25e5e2c93090c36ec95d099cffa8b1006d9974babd81be3860611a",
+      "title": "负责任AI如何进入日常决策：从原则走向证据",
+      "description": "阅读WEF与埃森哲2025年实践指南，检验九项行动如何落到责任、数据、设计、事故响应与人的选择权，并辨清成熟度与案例的证据边界。",
+      "published": "2026-11-17",
+      "updated": "2026-11-17",
+      "tags": [
+        "负责任AI",
+        "治理机制",
+        "证据审计"
+      ],
+      "url": "https://kongfurabbitz.github.io/insights/responsible-ai-governance-principles-to-evidence-2025/",
+      "content_sha256": "461bb863c89e4496d07ee549d3abfbd90e3e8e6249dc47f960f820720e5a271e"
+    },
+    {
       "slug": "physical-ai-manufacturing-readiness-2026",
       "source_id": "728b6e98b7c66474adcd4e9681ef8f98c95beef19984350b87e8d74752f46083",
       "title": "物理AI规模化：先证明持续运行，再验证第二现场",
