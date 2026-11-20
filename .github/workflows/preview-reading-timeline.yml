@@ -1,0 +1,24 @@
+name: Preview reading timeline
+on:
+  push:
+    branches: [preview/reading-timeline-20261120]
+permissions:
+  contents: read
+jobs:
+  interactive-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Render the timeline and exercise desktop and touch controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 > "$RUNNER_TEMP/timeline-http.log" 2>&1 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS -o /dev/null http://127.0.0.1:4173/insights/index.json; then break; fi
+            sleep 0.2
+          done
+          READING_SITE=http://127.0.0.1:4173 node scripts/check_reading_ui.mjs --preview-images

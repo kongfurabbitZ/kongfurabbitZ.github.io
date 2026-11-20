@@ -259,8 +259,8 @@ def build_many(repo, incoming_articles):
     require(len(set(keys)) == len(keys), "This paper already has a public URL")
     output = {"assets/css/insights.css": CSS, "insights/index.html": render_archive(ordered, chrome=chrome), "insights/feed.xml": render_feed(ordered)}
     output["insights/tags/index.html"] = shell("按标签浏览", "全站主题和方法标签", "/insights/tags/", catalog.tag_directory(ordered), chrome=chrome)
-    output["insights/timeline/index.html"] = shell("论文研读甘特图", "按入库日期浏览论文研读", "/insights/timeline/", catalog.render_timeline(ordered), chrome=chrome)
-    for asset in ("assets/css/reading-catalog.css", "assets/js/reading-catalog.js"):
+    output["insights/timeline/index.html"] = catalog.render_timeline(ordered, SITE)
+    for asset in ("assets/css/reading-catalog.css", "assets/js/reading-catalog.js", *catalog.TIMELINE_ASSETS):
         output[asset] = (Path(__file__).resolve().parents[1] / asset).read_text(encoding="utf-8")
     for article in ordered:
         output[f"content/insights/{article['slug']}.json"] = json.dumps(article, ensure_ascii=False, indent=2) + "\n"
