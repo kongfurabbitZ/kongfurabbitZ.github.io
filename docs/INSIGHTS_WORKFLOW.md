@@ -50,4 +50,4 @@ python3 -B scripts/public_insights.py --repo . --article /本机工作区/public
 
 首页沿用既有入口文件。assets/js/main.js 会在原研究栏目加载 insights/home-fragment.html，此片段与每次发布同步重建。网络加载失败时访客仍能从首页进入静态文章目录。新建的内容页统一通过主页的联系入口联系作者。
 
-时间轴使用本站托管的 vis-timeline 8.5.6。源码标签为 v8.5.6，官方预构建发布树为 8c5ddefcfbc51bace61758a7526d8f7e57696f10，保留原版许可。重建时从同一提交取完整 scripts 和 assets，包含 reading_catalog.TIMELINE_ASSETS 列出的样式、交互脚本及 assets/vendor/vis-timeline-8.5.6。浏览器直接读取本站文件。
+时间轴使用本站托管的 vis-timeline 8.5.6。源码标签为 v8.5.6，官方预构建发布树为 8c5ddefcfbc51bace61758a7526d8f7e57696f10，保留原版许可。重建时从同一提交取完整 scripts 和 assets，包含 reading_catalog.TIMELINE_ASSETS 列出的样式、交互脚本及 assets/vendor/vis-timeline-8.5.6。浏览器直接读取本站文件。缺少中文系统字体时使用本站托管的 Noto Sans SC（Fontsource 5.3.1，SIL OFL 1.1）。将上游 99c8c932bbb29d808fdd82b45ae4ac65e37f57f7 的 7,946 个字符按 Unicode 划为五个 WOFF2 分区，完整保留覆盖范围。字体和许可位于 assets/vendor/noto-sans-sc/，与头像一样作为站点静态资源随版本保留。

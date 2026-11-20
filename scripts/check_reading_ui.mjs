@@ -115,6 +115,7 @@ try {
     await waitFor("const m=document.querySelector('.vis-item .mark');return m && m.getBoundingClientRect().width>60 && getComputedStyle(m).visibility==='visible' && !document.querySelector('.plot .vis-loading-screen')");
     await js("return document.fonts.ready.then(()=>true)");
     assert.ok(await js("return document.documentElement.scrollWidth<=innerWidth+1 && document.querySelector('.vis-panel.vis-center').clientWidth>=180"), 'Chart too narrow at '+width);
+    if (width < 500) assert.ok(await js("return document.querySelector('.scale-switch').clientWidth >= document.querySelector('.map-head').clientWidth - 32"), 'Phone scale selector must use the full row');
     await capture('timeline-'+width, dir);
     for (const [unit,low,high] of [['day',1,1],['week',7,7],['month',28,31],['quarter',90,92],['year',365,366]]) {
       await choose(unit);

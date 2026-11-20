@@ -62,6 +62,7 @@ def verify(repository, commit, site):
               "/assets/js/reading-catalog.js", "/assets/css/reading-timeline.css", "/assets/js/reading-timeline.js",
               "/assets/vendor/vis-timeline-8.5.6/vis-timeline-graph2d.min.js", "/assets/vendor/vis-timeline-8.5.6/vis-timeline-graph2d.min.css",
               "/insights/feed.xml", "/insights/index.json")
+    assets += tuple(f"/assets/vendor/noto-sans-sc/reading-{part}.woff2" for part in range(1, 6))
     paths = list(nav.items()) + [(p, p[1:]) for p in assets]
     paths += [(u, u[1:] + "index.html") for u in by_url]
 

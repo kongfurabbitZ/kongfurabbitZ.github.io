@@ -260,8 +260,16 @@ def build_many(repo, incoming_articles):
     output = {"assets/css/insights.css": CSS, "insights/index.html": render_archive(ordered, chrome=chrome), "insights/feed.xml": render_feed(ordered)}
     output["insights/tags/index.html"] = shell("按标签浏览", "全站主题和方法标签", "/insights/tags/", catalog.tag_directory(ordered), chrome=chrome)
     output["insights/timeline/index.html"] = catalog.render_timeline(ordered, SITE)
+    source_root = Path(__file__).resolve().parents[1]
     for asset in ("assets/css/reading-catalog.css", "assets/js/reading-catalog.js", *catalog.TIMELINE_ASSETS):
-        output[asset] = (Path(__file__).resolve().parents[1] / asset).read_text(encoding="utf-8")
+        output[asset] = (source_root / asset).read_text(encoding="utf-8")
+    # Seed standalone previews. Regular article commits preserve the existing
+    # site's immutable binary fonts by reference, like its profile photograph.
+    for asset in catalog.TIMELINE_FONTS:
+        source, target = source_root / asset, repo / asset
+        if not target.exists() and source.is_file():
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(source.read_bytes())
     for article in ordered:
         output[f"content/insights/{article['slug']}.json"] = json.dumps(article, ensure_ascii=False, indent=2) + "\n"
         output[f"insights/{article['slug']}/index.html"] = render_article(article, chrome=chrome)

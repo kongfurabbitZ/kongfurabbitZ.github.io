@@ -69,8 +69,9 @@ def attributes(article):
 
 
 TIMELINE_VENDOR = "assets/vendor/vis-timeline-8.5.6"
+TIMELINE_FONTS = tuple(f"assets/vendor/noto-sans-sc/reading-{part}.woff2" for part in range(1, 6))
 TIMELINE_ASSETS = (
-    "assets/css/reading-timeline.css", "assets/js/reading-timeline.js",
+    "assets/css/reading-timeline.css", "assets/js/reading-timeline.js", "assets/vendor/noto-sans-sc/OFL.txt",
     *(TIMELINE_VENDOR + "/" + name for name in (
         "vis-timeline-graph2d.min.css", "vis-timeline-graph2d.min.js",
         "LICENSE.md", "LICENSE.MIT.txt", "LICENSE.Apache-2.0.txt")),
@@ -113,7 +114,7 @@ def render_timeline(articles, site):
 {select_tags(papers)}<label>跳到月份<select name="jump"><option value="">选择有研读的月份</option>{options}</select></label>
 <button class="latest" type="button" data-latest>最近研读</button></form>
 <div class="plot" tabindex="0" role="region" aria-label="研读时间轴，方向键平移，加减键缩放" aria-describedby="plot-help" data-plot></div>
-<div class="chart-foot"><span id="plot-help"><i aria-hidden="true"></i>拖动平移 · 双指或 Ctrl＋滚轮缩放</span><div class="zoom-tools"><button data-zoom="-1" aria-label="缩小">−</button><button data-zoom="1" aria-label="放大">＋</button></div></div>
+<div class="chart-foot"><span id="plot-help"><i aria-hidden="true"></i><span class="mouse-help">拖动平移 · Ctrl＋滚轮缩放</span><span class="touch-help">单指平移 · 双指缩放</span> · 点卡片阅读或展开</span><div class="zoom-tools"><button data-zoom="-1" aria-label="缩小">−</button><button data-zoom="1" aria-label="放大">＋</button></div></div>
 </section>
 <section class="reading-list" aria-labelledby="list-heading"><header class="list-head"><h2 id="list-heading">论文目录</h2><span data-count role="status">{len(papers)} 篇</span></header>
 <p class="empty" data-empty hidden></p><ol class="paper-list">{''.join(rows)}</ol></section>

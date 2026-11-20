@@ -1,10 +1,33 @@
 /* Styles for the public reading map. The chart is vis-timeline; the rest is native HTML. */
 @font-face {
   font-family: "Reading CJK";
-  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/noto-sans-sc-400.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/reading-1.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+  unicode-range: U+0-56E8;
+}
+@font-face {
+  font-family: "Reading CJK";
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/reading-2.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+  unicode-range: U+56E9-66B3;
+}
+@font-face {
+  font-family: "Reading CJK";
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/reading-3.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+  unicode-range: U+66B4-78B0;
+}
+@font-face {
+  font-family: "Reading CJK";
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/reading-4.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+  unicode-range: U+78B1-8C23;
+}
+@font-face {
+  font-family: "Reading CJK";
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/reading-5.woff2") format("woff2");
+  font-style: normal; font-weight: 400; font-display: swap;
+  unicode-range: U+8C24-10FFFF;
 }
 :root {
   color-scheme: light;
@@ -64,6 +87,7 @@ button:disabled { cursor: default; opacity: .38; }
 .direction:hover:not(:disabled), .scale-switch button:hover:not([aria-pressed="true"]) { background: #ffffff19; }
 .scale-switch { border: 1px solid #ffffff33; border-radius: 7px; padding: 3px; }
 .scale-switch button { min-width: 39px; height: 32px; padding: 0 10px; font-size: 13px; border-radius: 4px; color: #e2ece4; }
+.scale-switch button { white-space: nowrap; }
 .scale-switch button[aria-pressed="true"] { color: #16392d; background: var(--mint); font-weight: 700; }
 .filters { display: grid; grid-template-columns: minmax(160px, 1.35fr) minmax(125px, 1fr) minmax(155px, .85fr) auto; align-items: end; gap: 15px; padding: 13px 20px 15px; border-bottom: 1px solid var(--rule); }
 .filters label { display: grid; min-width: 0; gap: 3px; font-size: 11px; color: var(--muted); }
@@ -103,6 +127,11 @@ button:disabled { cursor: default; opacity: .38; }
 .mark-title { text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-size: 12px; font-weight: 560; }
 .chart-foot { padding: 6px 16px; justify-content: space-between; gap: 8px; border-top: 1px solid var(--rule); color: var(--muted); background: #f7f9f4; font-size: 12px; }
 .chart-foot i { display: inline-block; width: 7px; height: 7px; border: 1px solid #54836b; border-radius: 50%; margin-right: 7px; background: #c0debd; }
+.touch-help { display: none; }
+@media (pointer: coarse) {
+  .touch-help { display: inline; }
+  .mouse-help { display: none; }
+}
 .zoom-tools { gap: 5px; }
 .zoom-tools button { width: 32px; height: 30px; font-size: 18px; border-color: #c2d0c3; background: var(--surface); }
 .reading-list { margin-top: clamp(26px, 4vw, 42px); }
@@ -146,11 +175,11 @@ button:disabled { cursor: default; opacity: .38; }
   .filters label { font-size: 10px; }
   .filters input, .filters select, .latest { height: 36px; font-size: 16px; }
   .latest { font-size: 12px; }
-  .lane-label { width: 68px; min-height: 54px; font-size: 11px; gap: 4px; overflow-wrap: anywhere; }
+  .lane-label { width: 68px; min-height: 54px; font-size: 12px; gap: 4px; overflow-wrap: anywhere; }
   .plot .vis-labelset .vis-label .vis-inner { padding: 0 5px; }
   .lane-label::before { width: 3px; }
-  .mark { width: 99px; padding: 5px 6px; min-height: 38px; }
-  .mark-title { font-size: 11px; }
+  .mark { width: clamp(101px, 32vw, 137px); padding: 5px 6px; min-height: 42px; }
+  .mark-title { font-size: 12px; }
   .chart-foot { padding: 5px 8px; font-size: 11px; }
   .paper-record { grid-template-columns: 76px minmax(0, 1fr) 12px; gap: 2px 8px; padding: 9px 0; }
   .paper-record time { font-size: 11px; }
@@ -159,11 +188,11 @@ button:disabled { cursor: default; opacity: .38; }
   .record-arrow { grid-column: 3; grid-row: 1; }
 }
 @media (max-width: 510px) {
-  .map-head { display: grid; }
+  .map-head { display: grid; grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
   .period-nav { justify-content: space-between; }
   .scale-switch { justify-self: stretch; }
-  .scale-switch button { flex: 1; }
-  .direction { height: 30px; }
+  .scale-switch button { flex: 1; min-width: 0; height: 36px; }
+  .direction { width: 38px; height: 34px; }
 }
 @media (max-width: 360px) {
   .wrap { width: calc(100% - 20px); }
