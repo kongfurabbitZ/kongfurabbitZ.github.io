@@ -35,7 +35,8 @@ async function waitFor(script, ...args) {
     if (await js(script, ...args)) return;
     await pause(80);
   }
-  throw Error('Browser assertion timed out: ' + script);
+  const status = await js("const p=document.querySelector('[data-plot]'),v=p?.querySelector('.vis-timeline'),c=p?.querySelector('.vis-panel.vis-center');return {url:location.href,ready:p?.dataset.ready,scale:p?.dataset.scale,visibility:v && getComputedStyle(v).visibility,loading:!!p?.querySelector('.vis-loading-screen'),width:c?.clientWidth,items:p?.querySelectorAll('.mark').length,span:[p?.dataset.start,p?.dataset.end]};");
+  throw Error('Browser assertion timed out: ' + script + ' · ' + JSON.stringify(status));
 }
 const range = () => js("const p=document.querySelector('[data-plot]');return [+p.dataset.start,+p.dataset.end]");
 const span = async () => { const [start,end] = await range(); return end-start; };
@@ -43,7 +44,7 @@ const paperRows = () => js("return document.querySelectorAll('.paper-record:not(
 const choose = unit => click('[data-scale="' + unit + '"]');
 const ready = () => waitFor("return document.querySelector('[data-plot]')?.dataset.ready==='true'");
 async function chartPoint() {
-  return js("const p=document.querySelector('.plot .vis-panel.vis-center');p.scrollIntoView({block:'center'});const r=p.getBoundingClientRect();return {x:Math.round(r.left+r.width*.51),y:Math.round(Math.min(innerHeight-20,r.bottom-5)),dx:Math.round(Math.min(90,r.width*.23))}");
+  return js("const p=document.querySelector('.plot .vis-panel.vis-center');p.scrollIntoView({block:'center'});const r=p.getBoundingClientRect();const x=Math.round(r.left+r.width*.51),y=Math.round(Math.min(innerHeight-20,r.top+r.height*.55));const target=document.elementFromPoint(x,y);if(!target?.closest('.vis-timeline'))throw Error('Chart surface obscured by '+target?.className);return {x,y,dx:Math.round(Math.min(90,r.width*.23))}");
 }
 async function drag(mobile) {
   const {x,y,dx} = await chartPoint();
@@ -111,7 +112,8 @@ try {
     const month = papers.map(a=>a.reading.day.slice(0,7)).sort().at(-1);
     await visit('/insights/timeline/'); await ready();
     assert.equal(await paperRows(), papers.filter(a=>a.reading.day.startsWith(month)).length);
-    await waitFor("return !!document.querySelector('.vis-item .mark')");
+    await waitFor("const m=document.querySelector('.vis-item .mark');return m && m.getBoundingClientRect().width>60 && getComputedStyle(m).visibility==='visible' && !document.querySelector('.plot .vis-loading-screen')");
+    await js("return document.fonts.ready.then(()=>true)");
     assert.ok(await js("return document.documentElement.scrollWidth<=innerWidth+1 && document.querySelector('.vis-panel.vis-center').clientWidth>=180"), 'Chart too narrow at '+width);
     await capture('timeline-'+width, dir);
     for (const [unit,low,high] of [['day',1,1],['week',7,7],['month',28,31],['quarter',90,92],['year',365,366]]) {

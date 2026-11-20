@@ -55,7 +55,7 @@
     const entries = list.length ? list : records;
     const start = Math.min(...entries.map(r => r.time)), end = Math.max(...entries.map(r => r.time));
     const pad = Math.min(21, Math.max(1, Math.ceil((end - start) / DAY * .035))) * DAY;
-    return [midnight(start) - pad, midnight(end) + DAY + pad];
+    return [Math.max(min, midnight(start) - pad), Math.min(max, midnight(end) + DAY + pad)];
   }
   function period(unit, at) {
     if (unit === 'all') return extent(filtered);
@@ -95,7 +95,12 @@
   const initial = stateFromUrl();
   document.documentElement.classList.add('enhanced');
   const timeline = new vis.Timeline(plot, [], [], {
-    start: initial[0], end: initial[1], min, max, zoomMin: DAY, zoomMax: max - min,
+    min, max, zoomMin: DAY, zoomMax: max - min, rtl: false,
+    onInitialDrawComplete: () => {
+      timeline.setWindow(initial[0], initial[1], {animation: false});
+      render();
+      requestAnimationFrame(() => { timeline.redraw(); plot.dataset.ready = 'true'; });
+    },
     moment: value => vis.moment.utc(value), locale: 'en',
     format: {minorLabels: {weekday: 'D日', day: 'D日', week: 'M/D', month: 'M月', year: 'YYYY'},
       majorLabels: {weekday: 'YYYY年 M月', day: 'YYYY年 M月', week: 'YYYY年 M月', month: 'YYYY年', year: ''}},
@@ -214,7 +219,7 @@
     empty.hidden = visible.length !== 0;
     empty.textContent = filtered.length ? '这个时段没有研读。可切换周期或跳到有研读的月份。' : '没有匹配的论文，请调整关键词或标签。';
     all('[data-scale]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.scale === scale)));
-    all('[data-step]').forEach(b => { b.disabled = scale === 'all' || (+b.dataset.step < 0 ? start <= min + 1 : end >= max - 1); });
+    all('[data-step]').forEach(b => { b.disabled = !canStep(+b.dataset.step, start, end); });
     one('[data-zoom="1"]').disabled = end - start <= DAY + 1;
     one('[data-zoom="-1"]').disabled = end - start >= max - min - 1;
     const shownMonth = scale === 'month' ? iso(start).slice(0, 7) : '';
@@ -245,9 +250,14 @@
     const hit = filtered.find(r => r.day.startsWith(month));
     selectPeriod('month', hit?.time ?? atNoon(month + '-15'));
   }
+  function canStep(step, a, b) {
+    if (scale === 'all') return false;
+    if (scale === 'custom') return step < 0 ? a > min + 1 : b < max - 1;
+    return step < 0 ? a > floorPeriod(first, scale) : a < floorPeriod(last, scale);
+  }
   function move(step) {
     const [a,b] = windowRange();
-    if (scale === 'all') return;
+    if (!canStep(step, a, b)) return;
     if (scale === 'custom') { timeline.setWindow(a + step * (b-a), b + step * (b-a), {animation:false}); render(); saveView(); return; }
     const start = advance(a, scale, step), next = advance(start, scale, 1);
     const candidate = filtered.find(r => inWindow(r, start, next));
@@ -294,6 +304,4 @@
   });
   let resizeTimer;
   addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(render, 80); });
-  render();
-  plot.dataset.ready = 'true';
 })();

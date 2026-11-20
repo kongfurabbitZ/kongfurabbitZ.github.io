@@ -1,4 +1,11 @@
 /* Styles for the public reading map. The chart is vis-timeline; the rest is native HTML. */
+@font-face {
+  font-family: "Reading CJK";
+  src: local("Noto Sans CJK SC"), local("Noto Sans SC"), url("/assets/vendor/noto-sans-sc/noto-sans-sc-400.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 :root {
   color-scheme: light;
   --paper: #f6f6f0;
@@ -8,9 +15,9 @@
   --rule: #d7ded3;
   --dark: #173c37;
   --mint: #d4efcf;
-  --serif: Georgia, "Songti SC", "Noto Serif CJK SC", "STSong", serif;
-  --sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-  --number: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --serif: Georgia, "Songti SC", "Noto Serif CJK SC", "STSong", "Reading CJK", serif;
+  --sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", "Reading CJK", sans-serif;
+  --number: "SFMono-Regular", Consolas, "Liberation Mono", "Reading CJK", monospace;
 }
 * { box-sizing: border-box; }
 body { margin: 0; color: var(--ink); background: var(--paper); font: 15px/1.55 var(--sans); }

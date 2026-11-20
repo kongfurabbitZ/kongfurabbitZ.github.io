@@ -10,6 +10,15 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+      - name: Stage the pinned open-source Chinese fallback font
+        shell: bash
+        run: |
+          set -euo pipefail
+          font=assets/vendor/noto-sans-sc/noto-sans-sc-400.woff2
+          mkdir -p assets/vendor/noto-sans-sc
+          curl --fail --retry 2 --silent --show-error --location --max-time 45 https://raw.githubusercontent.com/fontsource/font-files/5a72889057f592bb0659629e38337359f94d53b2/fonts/google/noto-sans-sc/files/noto-sans-sc-chinese-simplified-400-normal.woff2 -o "$font"
+          test "$(git hash-object "$font")" = 99c8c932bbb29d808fdd82b45ae4ac65e37f57f7
+          python3 -c 'import base64,pathlib,sys; raw=pathlib.Path(sys.argv[1]).read_bytes(); print("\n".join(f"PUBLIC_FONT_{i:04d}="+base64.b64encode(raw[i*12000:(i+1)*12000]).decode() for i in range((len(raw)+11999)//12000)))' "$font"
       - name: Render the timeline and exercise desktop and touch controls
         shell: bash
         run: |
