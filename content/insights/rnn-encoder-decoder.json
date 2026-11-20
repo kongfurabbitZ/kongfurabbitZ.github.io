@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "rnn-encoder-decoder",
+  "source_id": "35acfcc574b37588ac0443ac65c9e2fccf794b24df9cf8522d6df5f09b82119c",
+  "title": "把可变长短语压进向量，机器翻译获得了什么？",
+  "description": "RNN Encoder–Decoder 从成对短语学习条件概率，将结果作为统计机器翻译系统的新特征。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·模型架构与表征",
+    "方法·序列建模",
+    "方法·表示学习"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "35c430b4669bae50be34ac984b709c2b1f47ca13a8a368540de1e888967720f3",
+    "identity": "pdf",
+    "revision": "a494bc8e98a0a0eb0047318deae429bf00d725634bfec8d69aa89e71fc83d682"
+  },
+  "lead": "RNN Encoder–Decoder 从成对短语学习条件概率，将结果作为统计机器翻译系统的新特征。这个设计让神经表示的增量价值可以在已有系统里测量。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "使用 WMT'14 英法翻译任务资源，包含 Europarl、news commentary、UN、爬取语料等；作者通过数据选择方法为语言模型和 RNN 训练取子集，RNN 训练语料约来自 348M words。"
+          ],
+          [
+            "样本与边界",
+            "主要边界是英法、短语级、phrase-based SMT、top 15,000 source/target vocabulary，OOV 统一映射到 [UNK] ；不是端到端神经机器翻译的完整验证。"
+          ],
+          [
+            "变量 / 测量",
+            "主要因变量是 BLEU；关键新增变量是 RNN Encoder-Decoder 计算出的 phrase pair conditional probability；辅助证据包括短语样例、采样输出、word/phrase t-SNE 表示。"
+          ],
+          [
+            "识别或评估策略",
+            "通过 Baseline、RNN、CSLM+RNN、CSLM+RNN+WP 的组合比较，展示 RNN 特征的边际贡献及其与 CSLM 的互补性。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "固定向量 c 能承载短语所需信息；训练 unique phrase pairs 有利于学习语言规律；BLEU 提升可代表真实翻译质量提升。",
+            "对短语级任务基本可接受，但对长句、复杂语序和低资源语言可能脆弱。"
+          ],
+          [
+            "替代解释",
+            "提升可能来自新增特征多样性、MERT 调权、数据选择、CSLM 与 RNN 的互补，而不完全来自 encoder-decoder 架构本身。",
+            "会削弱“架构本身是唯一原因”的说法，但不推翻“RNN 分数作为特征有效”的结论。"
+          ],
+          [
+            "可反证路径",
+            "在更多语言方向、长短语、低资源设置中加入 RNN 分数无改善；去掉门控单元后性能相当；更强固定窗口模型达到同等效果；表示聚类无法预测下游质量。",
+            "若成立，将把本文从“范式性方法”降级为“特定设置中的有效工程特征”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "输入短语变长时，固定维度表示最先丢失哪类信息？",
+    "如果把 Figure 1 的固定向量 c 替换为 attention 或 retrieval memory，论文的哪部分结论会被保留，哪部分会被改写？",
+    "如果在不同语言方向、低资源语料或更长短语上复现，RNN 分数的边际收益是否仍存在？"
+  ],
+  "references": [
+    {
+      "citation": "Kyunghyun Cho 等．Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation",
+      "url": "https://arxiv.org/abs/1406.1078"
+    }
+  ]
+}

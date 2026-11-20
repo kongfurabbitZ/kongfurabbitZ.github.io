@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "co-scientist",
+  "source_id": "13f067b28500b41d74449b0bd8ecca9819883fed72ff6388c5491fa33146b5b2",
+  "title": "科学假设经过模型间辩论后，还需要什么验证？",
+  "description": "Co-Scientist 把生成候选解释、相互评议和排序放进同一研究流程。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·AI科学研究",
+    "方法·科研智能体",
+    "方法·闭环实验"
+  ],
+  "reading": {
+    "day": "2026-07-05",
+    "key": "13344b10c2809825675ff5f2f5e8ce8b02a5af22828d1438f10b71cff515fa5e",
+    "identity": "bibliography",
+    "revision": "6cbe986ad35cc20f80707503a277c7014290ef331606135d0f0a3a484713943c"
+  },
+  "lead": "Co-Scientist 把生成候选解释、相互评议和排序放进同一研究流程。模型认可、专家偏好和独立实验回答不同层次的问题，比较系统时要分别记录。",
+  "sections": [
+    {
+      "heading": "研究怎样展开",
+      "paragraphs": [
+        "系统让多个角色提出、评议和修订候选假设，以相互比较决定接下来把研究时间投在哪里。专家判断和实验验证构成另外两层证据。"
+      ]
+    },
+    {
+      "heading": "怎样检验这个判断",
+      "paragraphs": [
+        "模型间共识可能反映相似的训练先验。可保留被淘汰假设的随机样本，在相同预算内独立盲评，以判断排序是否遗漏了有价值的方向。"
+      ]
+    }
+  ],
+  "questions": [
+    "多少入选假设经得起独立实验，与排序本身的得分有何关系？",
+    "专家看到排名之前和之后，对候选的评估是否一致？",
+    "如果固定实验预算，更多候选或更好的排序，哪个更能提高命中率？"
+  ],
+  "references": [
+    {
+      "citation": "Juraj Gottweis 等．Accelerating scientific discovery with Co-Scientist",
+      "url": "https://doi.org/10.1038/s41586-026-10644-y"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "forecasting-scientific-progress",
+  "source_id": "e3bceb4d1166fcbb4b90facf82b64cb1ee7efb34ae394fadd88c40a5ede5ea53",
+  "title": "能解释一项突破，就能提前预测它吗？",
+  "description": "科学进展预测把模型置于信息截止时点，要求它判断一条研究路径是否会实现。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·AI科学研究",
+    "方法·预测评测"
+  ],
+  "reading": {
+    "day": "2026-07-03",
+    "key": "bfcd1464449f9df9a4041ffb28c3953edc30951c8445c3a77b491504e589fccb",
+    "identity": "pdf",
+    "revision": "058480746fcc05e322b5578d6bc347881e7fbd586a38b5e6a1742322aafb7490"
+  },
+  "lead": "科学进展预测把模型置于信息截止时点，要求它判断一条研究路径是否会实现。回顾性解释容易依赖答案线索，真正的预测需要校准概率并锁定可用信息。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "论文覆盖 4,760 个科学 milestones 和 17,429 个任务，来源跨自然科学与 AI，但顶刊、榜单和 leaderboard 会强化可见度偏差"
+          ],
+          [
+            "样本与边界",
+            "时间范围为 2024 年 1 月到 2026 年 3 月，适合短中期科学进展评估，但不足以覆盖长周期基础科学突破"
+          ],
+          [
+            "变量 / 测量",
+            "Binary、MCQ、FRQ、date prediction 拆分合理，能区分候选识别、开放生成和时间预测；但科学进展被压缩为论文摘要和发表事件"
+          ],
+          [
+            "识别或评估策略",
+            "cutoff 约束、pre-cutoff search 和 full-information 对照是论文最强设计，能拆分知识访问和前瞻预测"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "发表 milestone 可以代表科学进展",
+            "如果真实进展发生早于发表，或重要进展未进入顶刊与榜单，预测目标会被扭曲"
+          ],
+          [
+            "隐性假设",
+            "摘要足以拆出问题、方法和结果",
+            "摘要省略实验细节和失败路径，会使任务更像文本重构而非真实科研预测"
+          ],
+          [
+            "隐性假设",
+            "模型 cutoff 日期可被准确用于样本切分",
+            "如果模型训练数据和实际可访问知识边界不清，pre-cutoff 与 post-cutoff 比较会变弱"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "如何设计时间切分，使评测反映对未来的判断能力？",
+    "如果引入人类专家、预测市场或科研基金评审作为基线，CUSP 上模型失败的相对程度会如何变化？",
+    "如果把科学进展从“发表 milestone”改成“实验可复现结果”或“产业可部署技术”，论文结论是否仍成立？"
+  ],
+  "references": [
+    {
+      "citation": "Sean Wu 等．Forecasting Scientific Progress with Artificial Intelligence",
+      "url": "https://arxiv.org/abs/2605.22681"
+    }
+  ]
+}

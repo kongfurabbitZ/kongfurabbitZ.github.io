@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "informer",
+  "source_id": "95d8d427005e4dab28932b2630886931fc095996fdd4a65d0e050bae801ffc37",
+  "title": "Informer 在长序列预测中省下了什么？",
+  "description": "Informer 分别处理注意力计算、编码器内存和逐步解码开销。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·时间序列预测",
+    "方法·长序列建模",
+    "方法·稀疏注意力"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "fdefd7aacbffafc3eadfa13ca6bd2777d97e539c48e14ec11da10f0455438a40",
+    "identity": "pdf",
+    "revision": "0f7ae28fec65702009cdf1649bb103bdb1c6628794e0968b993ea966884b8bf9"
+  },
+  "lead": "Informer 分别处理注意力计算、编码器内存和逐步解码开销。评估其价值时，可以把资源节省与预测误差分开，并与同条件的简单基线比较。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "论文使用四类数据：ETT、ECL、Weather，以及 ETT 不同粒度数据；ETT 是作者收集并公开的数据，ECL 和 Weather 来自公开来源。"
+          ],
+          [
+            "样本与边界",
+            "ETT 覆盖 2 年电力变压器温度数据，ECL 覆盖 321 客户用电量，Weather 覆盖约 1600 个美国地点气候数据。边界是这些数据相对规整，不能完全代表企业系统中的缺失、口径变化、强业务干预和结构性断点。"
+          ],
+          [
+            "变量 / 测量",
+            "主指标是 MSE 与 MAE；训练/推理效率用 runtime 与复杂度表比较。指标适合论文 benchmark，但不足以表达长周期经营决策中的成本函数。"
+          ],
+          [
+            "识别或评估策略",
+            "与 ARIMA、Prophet、LSTMa、LSTnet、DeepAR、LogTrans、Reformer、Informer† 等基线比较，并把预测窗口逐步延长；消融分别测试 ProbSparse、distilling 和 generative decoder。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "注意力分布长期呈长尾，少数 query 主导主要依赖。",
+            "若数据的关键依赖由低频异常、外生事件或少量非周期信号决定，Top-u 策略可能忽略真正重要的弱信号。"
+          ],
+          [
+            "隐性假设",
+            "一次前向生成长序列能替代动态解码。",
+            "对速度有利，但可能弱化输出序列内部的自回归纠错能力。"
+          ],
+          [
+            "替代解释",
+            "性能提升可能主要来自 decoder 非自回归和长输入设置，而不是 ProbSparse 本身。",
+            "会把论文贡献从“稀疏 attention 核心突破”收缩为“LSTF 架构组合优化”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "只保留少数查询，会在哪类时间序列上错过关键变化？",
+    "如果在同一数据集上加入 Autoformer、FEDformer、PatchTST、DLinear、TimesFM 等后续强基线，Informer 的优势还剩下什么？",
+    "对企业预测任务，attention 长尾稀疏性是否可被预先诊断？如果不能诊断，ProbSparse 的选型依据是什么？"
+  ],
+  "references": [
+    {
+      "citation": "Haoyi Zhou 等．Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting",
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/view/17325"
+    }
+  ]
+}

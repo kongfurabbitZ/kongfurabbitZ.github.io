@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "organisation-ontology",
+  "source_id": "15bad492f3b4128983c512ecd231bbdbbab70f329e7e74f5df5af646f2648ddc",
+  "title": "组织图能解释谁做决定吗？",
+  "description": "组织建模要把成员、角色、权限与行为联系起来，才能解释一次决定的实际含义。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·本体与知识表示",
+    "方法·企业建模",
+    "方法·形式语义"
+  ],
+  "reading": {
+    "day": "2026-07-07",
+    "key": "2c381cec2903c10be638ba4ec13de3a32930054ed4431b263af601480fcf63a2",
+    "identity": "pdf",
+    "revision": "d4757036c1d823d587102aea6d611c8845c9097b15603df6e48d5125ca328d7a"
+  },
+  "lead": "组织建模要把成员、角色、权限与行为联系起来，才能解释一次决定的实际含义。论文的初步概念提供了描述这些关系的方法，也留下了动态变化的检验空间。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "不是数据论文，主要来源于 TOVE 项目、企业建模需求、组织理论和形式逻辑建模传统"
+          ],
+          [
+            "样本与边界",
+            "样本意义弱，边界在工业企业建模、供应链、并行工程和多代理协作信息系统"
+          ],
+          [
+            "变量 / 测量",
+            "不涉及统计变量；核心建模对象是 agent、role、position、goal、communication、authority、commitment、empowerment"
+          ],
+          [
+            "识别或评估策略",
+            "采用 competency questions 作为评价入口，但本文没有像完整形式化论文那样逐项证明 competency questions"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "组织行为可以被充分表达为代理、角色、职位、目标、通信、权威、承诺和赋权的组合",
+            "如果真实组织主要由非正式网络、信任、声望、冲突和激励驱动，则形式本体只能捕捉可制度化部分"
+          ],
+          [
+            "隐性假设",
+            "权威和赋权能被清晰区分",
+            "在现实中“有权要求”“有权批准”“有能力执行”“愿意执行”常常混在一起，模型需要额外层次"
+          ],
+          [
+            "替代解释",
+            "结构和行为的连接也可以通过 workflow policy、access control、责任矩阵或业务规则引擎实现",
+            "ontology 的优势在语义共享和推理，但不一定是所有企业系统的最低成本方案"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "人员临时代理另一个角色时，哪些权限关系需要随之改变？",
+    "组织结构发生变化后，哪些行为规则仍然成立？",
+    "正式授权和实际执行者之间的分歧能否用模型表达？"
+  ],
+  "references": [
+    {
+      "citation": "Mark S. Fox 等．An Organisation Ontology for Enterprise Modelling: Preliminary Concepts for Linking Structure and Behaviour",
+      "url": "https://doi.org/10.1109/ENABL.1995.484550"
+    }
+  ]
+}

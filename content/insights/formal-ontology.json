@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "formal-ontology",
+  "source_id": "1f190a3f4f0e65058dba1d39b90be6e67b3bbdd0df1443319e038ec18f6fbaeb",
+  "title": "相同的字段名，为什么仍可能指向不同事物？",
+  "description": "Guarino 借助形式本体说明，信息系统之间共享词汇还需要共享关于世界的假设。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·本体与知识表示",
+    "方法·形式语义",
+    "方法·语义互操作"
+  ],
+  "reading": {
+    "day": "2026-07-07",
+    "key": "3cb65c70574feb259462512ab164d13bf9cb3083b988e237f1b7043db7a57777",
+    "identity": "pdf",
+    "revision": "59fc2c3ef0e760f1f52fb86f0d688d1a702126c0516bd8c7ada23dbf2cefded7"
+  },
+  "lead": "Guarino 借助形式本体说明，信息系统之间共享词汇还需要共享关于世界的假设。对象身份、依赖关系和类别边界会决定两个系统能否正确互译。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "主要来源是作者对 AI、知识表示、数据库、信息集成和形式本体文献的概念综合，以及模型论定义。"
+          ],
+          [
+            "样本与边界",
+            "没有实证样本。适用于符号型信息系统与显式语义建模，对非符号系统和纯统计模型需要重新解释。"
+          ],
+          [
+            "变量 / 测量",
+            "论文不使用变量测量，而使用 conceptualization、intended models、ontology models、IS components 等概念关系构造论证。"
+          ],
+          [
+            "识别或评估策略",
+            "采用定义推演加架构分类：先澄清术语，再推导信息集成风险，最后映射到数据库、用户界面和应用程序。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "假设 conceptualization 可以通过 intended models 被足够稳定地刻画，并且系统参与方愿意显式化自己的本体承诺。",
+            "这在工程上很难，尤其是跨组织、跨文化或高速变化场景。"
+          ],
+          [
+            "替代解释",
+            "信息集成失败也可能来自数据质量、接口约束、流程激励、权限边界，而不只是本体承诺不一致。",
+            "会削弱“本体是中心问题”的范围，但不会推翻语义失配的重要性。"
+          ],
+          [
+            "可反证路径",
+            "如果轻量级语义映射、上下文协议或数据契约在复杂集成中长期稳定优于上层本体方案，则 top level ontology 的优先性会被削弱。",
+            "会迫使本体从“统一中心”转为“可协商的语义治理层”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "两套系统都记录“客户”时，怎样发现它们对对象身份的判断不同？",
+    "哪一个反例能说明两个名称相同的类具有不同身份准则？",
+    "共享上层概念会在哪些实际查询中改变答案？"
+  ],
+  "references": [
+    {
+      "citation": "Nicola Guarino．Formal Ontology and Information Systems",
+      "url": "https://www.semanticscholar.org/paper/Formal-Ontology-and-Information-Systems-Guarino/c15aeaa48974807d2ff61b94af7a318a48d156f7"
+    }
+  ]
+}

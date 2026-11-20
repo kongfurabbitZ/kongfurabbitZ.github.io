@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "spectral-networks",
+  "source_id": "0ca08360fd99ff2f9ee19703bf5256b45b36790facc22755ee33072dba7fafa1",
+  "title": "卷积离开规则网格，怎样在图上共享参数？",
+  "description": "在图上，邻居数量和排列不再一致。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·图学习",
+    "方法·谱方法",
+    "方法·图卷积"
+  ],
+  "reading": {
+    "day": "2026-07-09",
+    "key": "87139fe7f9e231f35cd26fdf88a84be8aec6569dc9714ea72108f5430b13e481",
+    "identity": "pdf",
+    "revision": "63210d982a0d03e69046f0a4340613d2c3c4b6cc554ea977d6a15c04545b9cd2"
+  },
+  "lead": "在图上，邻居数量和排列不再一致。研究者借助图的谱结构或局部连接定义滤波，代价是模型对特定图结构的依赖也需要接受检验。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "Data/source",
+            "使用两个 MNIST 变体：400 随机位置 subsampled MNIST，以及投影到 4096 点球面上的 MNIST。数据可控，适合验证机制，但真实图外推有限。"
+          ],
+          [
+            "Sample and boundary",
+            "图是低维几何图，局部性和流形结构相对清楚；不覆盖社交网络、推荐图、知识图谱等高异质真实图。"
+          ],
+          [
+            "Variables/measurement",
+            "指标主要是分类错误率和参数量；没有系统报告训练时间、稳定性、方差、计算成本或跨图迁移。"
+          ],
+          [
+            "Robustness/reproducibility",
+            "提供模型结构、参数量和错误率；但缺少现代意义上的多随机种子、显著性区间和真实图 benchmark。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "假设",
+          "为什么关键",
+          "失效后果"
+        ],
+        "rows": [
+          [
+            "图边表达局部相似性",
+            "空间构造依赖邻域有意义",
+            "邻域聚合会把无关甚至相反信号混在一起"
+          ],
+          [
+            "图具有低维或流形式结构",
+            "作者明确强调 low-dimensional graphs",
+            "高维异质图可能没有稳定局部几何"
+          ],
+          [
+            "拉普拉斯低频承载主要任务信息",
+            "谱构造依赖平滑和低频结构",
+            "高频有意义时，模型可能错过关键模式"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "当训练图和应用图的谱结构不同，哪些参数还能可靠迁移？",
+    "如果打乱图的邻接关系，模型仍能保留多少分类能力？",
+    "谱滤波器对图规模和几何结构有什么要求？"
+  ],
+  "references": [
+    {
+      "citation": "Joan Bruna 等．Spectral Networks and Deep Locally Connected Networks on Graphs",
+      "url": "https://arxiv.org/abs/1312.6203"
+    }
+  ]
+}

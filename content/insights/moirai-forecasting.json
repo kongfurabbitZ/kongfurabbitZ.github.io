@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "slug": "moirai-forecasting",
+  "source_id": "36b9156218e2bb35e382329de55bc3291eb06ef9f14696e67fa7f8c1de07ad4c",
+  "title": "Moirai 怎样用一套模型处理不同频率和变量数？",
+  "description": "Moirai 用多种分块尺度、变量注意力和混合输出分布容纳差异很大的时序任务。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·时间序列预测",
+    "方法·时序基础模型",
+    "方法·概率预测",
+    "方法·零样本迁移"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "6d546b9c7c8eefe9de9b7c29310a4e9a9709d12d9e9b566e779b93a686af3454",
+    "identity": "pdf",
+    "revision": "a208875d1206456a20522283e640c15eaf1da47e62cca02f907d0e6470749a42"
+  },
+  "lead": "Moirai 用多种分块尺度、变量注意力和混合输出分布容纳差异很大的时序任务。统一接口简化了试用，按数据集检查迁移效果仍然必要。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "LOTSA 整合 Monash、GluonTS、BuildingsBench、ClimateLearn、CloudOps、LargeST、LibCity 等开放数据源，约 27.65B 时间观测，九个领域。优势是开放和规模大；风险是领域和频率分布不均，Energy、Transport、Climate 占绝大多数。"
+          ],
+          [
+            "样本与边界",
+            "论文区分 in-distribution 与 out-of-distribution。Monash 部分训练区进入 LOTSA，测试区保留用于评估；out-of-distribution 任务排除已纳入 LOTSA 的同源数据。边界是数据源相似性仍可能产生近邻迁移，严格 OOD 定义需要更标准的公开拆分。"
+          ],
+          [
+            "变量 / 测量",
+            "使用 normalized MAE、CRPS、MSIS、MSE、MAE 等指标，覆盖点预测与概率预测。CRPS/MSIS 有助于评估概率预测质量，但业务应用仍需要按具体成本函数验证，例如库存缺货、能源调度、运维告警的损失函数。"
+          ],
+          [
+            "识别或评估策略",
+            "方法评估而非因果识别。核心策略是 zero-shot Moirai 与 full-shot baselines 对比，并用消融证明 patch size、Any-variate Attention、mixture distribution、LOTSA、packing 的边际贡献。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "LOTSA 中的时间序列模式足以覆盖未来下游任务。",
+            "如果业务场景来自 LOTSA 缺失领域或特殊事件机制，zero-shot 能力会明显下降。"
+          ],
+          [
+            "隐性假设",
+            "排除同源数据后，OOD benchmark 足以代表真实跨域泛化。",
+            "如果测试数据与预训练数据存在结构近邻，论文可能高估通用性。"
+          ],
+          [
+            "隐性假设",
+            "多 patch size 的启发式频率映射可以稳定处理跨频率学习。",
+            "作者承认该方法不够优雅；若频率和模式复杂耦合，预设映射可能造成负迁移。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "增加一个强相关变量时，预测区间的校准会如何变化？",
+    "如果建立一个严格无泄漏的企业 OOD 预测评估池，Moirai / TimesFM / Chronos / 统计模型之间的相对优势会如何变化？",
+    "对高维多变量业务系统，Any-variate Attention 的计算成本和变量关系建模是否足够，还是需要图结构、稀疏注意力或领域约束？"
+  ],
+  "references": [
+    {
+      "citation": "Gerald Woo 等．Unified Training of Universal Time Series Forecasting Transformers",
+      "url": "https://proceedings.mlr.press/v235/woo24a.html"
+    }
+  ]
+}

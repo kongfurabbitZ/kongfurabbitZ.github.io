@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "elephants-dont-play-chess",
+  "source_id": "bdf72740549deb212bc78308578f4e23c33f3e24772bf56c7e2fb4e349939977",
+  "title": "大象不下棋，机器人怎样借助身体解决问题？",
+  "description": "Brooks 以机器人与环境的持续互动挑战当时对中心表示的依赖。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·世界模型与具身智能",
+    "方法·具身智能"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "fbfe654f338d0d126eae76bb9c31a8063d63aa23f5754fe08159849cc163f39c",
+    "identity": "pdf",
+    "revision": "d0bcb9ad2402042484595e0bb152a3235eb814bf8b400fa9bf27177dae5818a2"
+  },
+  "lead": "Brooks 以机器人与环境的持续互动挑战当时对中心表示的依赖。它提出的工程问题至今仍在，哪些决定可以交给实时感知，哪些任务需要跨时间的规划？",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "概念清晰度",
+            "核心对立非常清楚：symbol system hypothesis 与 physical grounding hypothesis。Brooks 把“智能的分解单位”从功能模块改成行为模块，这是全篇最重要的概念移动。"
+          ],
+          [
+            "文献与理论边界",
+            "论文引用 Simon-1969、Pylyshyn-1987、Agre and Chapman-1987、Moravec-1984、Yarbus-1967 等，但不是综述型论文。它选择性地组织文献来支持一场范式争论。"
+          ],
+          [
+            "证据来源",
+            "证据主要来自 MIT 移动机器人系统的构造经验，包括 Allen、Tom and Jerry、Herbert、Genghis、Squirt、Toto、Seymour、Gnat robots。"
+          ],
+          [
+            "论证策略",
+            "先批判符号主义的认识论假设，再提出物理嵌入假说，然后用演化时间尺度和机器人案例强化直觉，最后承认未来限制。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "真实世界交互能提供足够约束，行为模块组合能持续扩展，复杂智能可自底向上构造。",
+            "若复杂认知必须依赖可脱离现场的抽象表示，Brooks 的路线需要补上符号层，而不能简单替代。"
+          ],
+          [
+            "替代解释",
+            "机器人案例成功可能来自任务选择、环境限制、工程调参，而不是 physical grounding hypothesis 本身充分。",
+            "会削弱“物理嵌入路线必然优越”的强结论，但不削弱“无根符号路线不充分”的批判。"
+          ],
+          [
+            "可反证路径",
+            "当任务需要长时程反事实推演、语言协作、法规解释、跨场景泛化时，如果纯行为层无法扩展，就说明需要更强的抽象建模层。",
+            "会把 Brooks 的理论从“总路线”收缩为“智能底座理论”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "当任务要求延迟很久才获得反馈时，反应式控制还缺什么？",
+    "Brooks 的 physical grounding hypothesis 是否可以扩展到今天的软件智能体，还是必须依赖真实物理身体？",
+    "如果语言和数学能力确实需要离线抽象表示，Brooks 的路线应如何与符号层重新结合？"
+  ],
+  "references": [
+    {
+      "citation": "Rodney A. Brooks．Elephants Don't Play Chess",
+      "url": "https://doi.org/10.1016/S0921-8890(05)80025-9"
+    }
+  ]
+}

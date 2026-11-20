@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "answer-engines-thin-records",
+  "source_id": "aab9a7574c66e8f5014560303457761da4699cf72595bb944c847333cd2d1307",
+  "title": "公开记录越少，AI 回答为什么越容易出错？",
+  "description": "研究者用同一组问题比较多个回答引擎。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·评测与可靠性",
+    "方法·事实性",
+    "方法·基准评测"
+  ],
+  "reading": {
+    "day": "2026-08-07",
+    "key": "655d3b410519867925f9c4469c90352411ca3f0e9b2bcc0244d967eb89589885",
+    "identity": "bibliography",
+    "revision": "e8fa63c510dc34ab936abe641012c7c6adde7f944c1683d62db1f1c7cd31e6ee"
+  },
+  "lead": "研究者用同一组问题比较多个回答引擎。公开材料稀薄时，错误与过度肯定容易同时出现，因此资料覆盖程度本身也应成为事实核查的一项指标。",
+  "sections": [
+    {
+      "heading": "研究怎样展开",
+      "paragraphs": [
+        "研究将五种联网回答引擎对 28 场冲突的 5,460 次回答与可查记录比对。跨问题与跨事件的比较，让研究者可以观察资料厚薄同事实错误之间的关系。"
+      ]
+    },
+    {
+      "heading": "怎样检验这个判断",
+      "paragraphs": [
+        "记录少的事件也可能更难核查。独立来源数量、事件复杂性和基准答案的不确定性应分别报告。对有争议的事实，列出分歧及来源能让读者看到结论的依据。"
+      ]
+    }
+  ],
+  "questions": [
+    "面对几乎没有独立报道的问题，回答系统怎样表达证据不足？",
+    "多个引擎引用同一个来源时，这算几份独立证据？",
+    "证据稀少的事件，基准答案自身的不确定性如何计入评分？"
+  ],
+  "references": [
+    {
+      "citation": "Jason Miklian．How Artificial Intelligence LLM Engines Shape the Global Conflict Information Environment",
+      "url": "https://arxiv.org/abs/2607.14197v1"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "temporal-convolutional-networks",
+  "source_id": "f7e5df08b234f1c395ff4f7b3597b28f170fc9d70af388be5b645bfc4456f42b",
+  "title": "序列建模时，为什么值得先试时序卷积？",
+  "description": "因果卷积、膨胀卷积与残差连接给 TCN 带来了可设计的感受野。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·模型架构与表征",
+    "方法·序列建模"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "82846313fdc05d02ff603b08b9400e9117ffb3a7e1ca696e01d8c093d78c7fd7",
+    "identity": "pdf",
+    "revision": "2172e2a2953069bb917f6a02565e0d4ee368fa729add2b8196ec76ec8d03725a"
+  },
+  "lead": "因果卷积、膨胀卷积与残差连接给 TCN 带来了可设计的感受野。把它与循环网络放在同一套任务上比较，可以区分理论上的记忆能力和实验里实际能用的历史。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "任务覆盖 synthetic stress tests、MNIST 序列化任务、polyphonic music、Penn Treebank、WikiText-103、LAMBADA、text8，覆盖短/长依赖、分类、生成和语言建模。"
+          ],
+          [
+            "样本与边界",
+            "任务都是 2018 年前常见序列建模 benchmark，能代表 RNN 研究传统中的主流测试集；但不覆盖机器翻译 seq2seq、强化学习、在线流式预测、工业多变量时间序列等更复杂场景。"
+          ],
+          [
+            "变量 / 测量",
+            "不同任务指标不同：accuracy、loss、perplexity、bits per character。核心比较口径是同级参数规模下的 generic TCN vs LSTM/GRU/RNN。"
+          ],
+          [
+            "识别或评估策略",
+            "不是因果识别，而是 controlled empirical evaluation。说服力来自跨任务一致性、同参数量控制、超参说明、代码公开和附录消融。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "benchmark 集合能代表序列建模任务空间；canonical LSTM/GRU 代表合理 RNN baseline；同参数量比较能近似公平。",
+            "若这些假设不成立，论文的结论应收缩为“在所选 benchmark 和 baseline 下，TCN 是强基线”。"
+          ],
+          [
+            "替代解释",
+            "TCN 胜出可能来自更适合 GPU 并行训练、优化路径更稳定、receptive field 设计正好覆盖任务窗口，而非卷积机制天然优越。",
+            "这不推翻实用结论，但会改变理论解释：胜负来自可优化性与归纳偏置匹配，而不是 CNN/RNN 类型标签。"
+          ],
+          [
+            "可反证路径",
+            "若在同等调参预算下，强化正则化/记忆机制的 recurrent models 在同样广任务集合中稳定超过 TCN，或 TCN 在流式、状态持续更新任务中系统性失败，则论文主张会被削弱。",
+            "会削弱“TCN 应作为默认起点”的普遍性，但仍保留“不要盲目默认 RNN”的方法论价值。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "任务依赖的时间跨度超过感受野后，性能如何改变？",
+    "压力测试：如果加入 Transformer、Informer、FEDformer、TimesFM、Chronos、Moirai、Time-MoE 等后续模型，TCN 还应是“自然起点”，还是应退化为强历史基线？",
+    "压力测试：在汽车企业的多变量时间序列场景中，TCN 的固定 receptive field 能否覆盖真正的业务滞后周期？"
+  ],
+  "references": [
+    {
+      "citation": "Shaojie Bai 等．An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling",
+      "url": "https://arxiv.org/abs/1803.01271"
+    }
+  ]
+}

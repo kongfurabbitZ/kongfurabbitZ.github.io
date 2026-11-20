@@ -115,3 +115,22 @@
 			});
 
 })(jQuery);
+/* Mount the public reading catalog into the existing homepage. */
+(() => {
+  const section = document.getElementById('report-insights');
+  if (!section || !['/', '/index.html'].includes(location.pathname)) return;
+  const style = document.createElement('link');
+  style.rel = 'stylesheet';
+  style.href = '/assets/css/reading-catalog.css';
+  document.head.append(style);
+  fetch('/insights/home-fragment.html').then(response => {
+    if (!response.ok) throw Error('Reading catalog unavailable');
+    return response.text();
+  }).then(markup => {
+    const next = new DOMParser().parseFromString(markup, 'text/html').getElementById('report-insights');
+    if (!next) return;
+    section.replaceWith(document.importNode(next, true));
+    const archive = document.querySelector('#one a[href="/insights/"]');
+    if (archive) archive.textContent = '浏览全部文章';
+  }).catch(() => { /* The original homepage already offers a working archive link. */ });
+})();

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "react-reasoning-acting",
+  "source_id": "f285b0971ae4a790e402fb93966bed3adde2cf0a04977d08b2b40d6ab0cace69",
+  "title": "ReAct 怎样让外部观察改变智能体的下一步？",
+  "description": "把推理、动作和观察交替排列后，模型可以利用新证据修正计划。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·智能体与工具",
+    "方法·推理与行动",
+    "方法·工具调用"
+  ],
+  "reading": {
+    "day": "2026-07-03",
+    "key": "06c13cf49ea4a44d867dc034deff7f7597e40019c2ad442906aa1b408aa41692",
+    "identity": "pdf",
+    "revision": "cf5c40a314c6091a1e148cb24763c3ef44fc12208252383ba54d093f31b081fe"
+  },
+  "lead": "把推理、动作和观察交替排列后，模型可以利用新证据修正计划。失败案例同样值得读，错误的检索结果也可能被后续步骤不断放大。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "研究设计",
+            "论文覆盖知识密集任务与交互决策任务，能同时检验事实性、规划性和行动性，实验面较广"
+          ],
+          [
+            "对照基线",
+            "与 Standard，CoT，Act only，CoT self consistency 以及部分 imitation learning 和 reinforcement learning 方法比较，基线设置较充分"
+          ],
+          [
+            "方法可解释性",
+            "强。Thought，Act，Obs 结构天然形成轨迹日志，便于诊断失败原因"
+          ],
+          [
+            "实证强度",
+            "中高。ReAct 在 ALFWorld 和 WebShop 上优势明显，在 HotpotQA 和 Fever 上更体现互补性"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "可反证问题",
+          "如果出现什么结果，论文主张会被削弱"
+        ],
+        "rows": [
+          [
+            "Thought 是否真的驱动行动",
+            "随机替换或隐藏 Thought 后，行动表现几乎不下降"
+          ],
+          [
+            "外部观察是否真正降低幻觉",
+            "工具观察可用时，幻觉率并未显著下降，甚至因错误检索更高"
+          ],
+          [
+            "ReAct 是否适合长程任务",
+            "任务长度增加后，重复循环、上下文丢失和错误传播迅速超过收益"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "在行动轨迹的哪一步加入核对，能最早发现错误观察？",
+    "Thought 到底是因果控制信号，还是一种对行动的可读包装？如何设计实验区分二者？",
+    "当工具观察存在噪声、过期或权限缺失时，ReAct 需要怎样的自检和纠错机制？"
+  ],
+  "references": [
+    {
+      "citation": "Shunyu Yao 等．ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629"
+    }
+  ]
+}

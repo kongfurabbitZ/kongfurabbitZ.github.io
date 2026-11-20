@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "portable-ontology",
+  "source_id": "ffa4b4476a1f95a5572e741c7a7cafb0d7793d2139c5268c8b4071c45906459e",
+  "title": "本体规范可以在不同系统间无损翻译吗？",
+  "description": "Ontolingua 把共享概念写成独立规范，再映射到具体表示语言。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·本体与知识表示",
+    "方法·语义互操作",
+    "方法·形式语义"
+  ],
+  "reading": {
+    "day": "2026-07-07",
+    "key": "288ef0952f409bd28a2958f2d9681353df275668a19c1e6f0f8f50dc1f8dcf2d",
+    "identity": "pdf",
+    "revision": "fa318945d1b58fc6f2dfc95fb2a085fb55bc86a9d563e78e514d321f03f22b88"
+  },
+  "lead": "Ontolingua 把共享概念写成独立规范，再映射到具体表示语言。可移植性取决于目标语言能表达哪些约束，以及哪些语义在翻译中需要额外检查。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "概念清晰度",
+            "非常高。论文给出“本体是概念化的显式规范”这一经典定义，并区分 conceptualization、universe of discourse、representational vocabulary、formal axioms、knowledge level commitment。"
+          ],
+          [
+            "文献与问题边界",
+            "文献边界围绕知识共享、KIF、agent communication、frame based systems、conceptual schema 和知识级规范展开。它不是泛哲学本体论论文，而是面向 AI 系统互操作的工程论文。"
+          ],
+          [
+            "方法与架构",
+            "Ontolingua 的方法链条清楚：KIF 源语言、定义 forms、translation targets、Frame Ontology、canonical form、back end translators。Figure 2 让架构可检验。"
+          ],
+          [
+            "证据类型",
+            "主要是系统设计说明、形式化示例和目标系统翻译示例，如 author ontology 被翻译到 Epikit、Loom、KEE。证据偏构造性，不是统计实验。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "假设共享概念化可以被足够稳定地形式化；假设不同表示系统之间存在可抽象的共同 idioms；假设知识工程师愿意维护声明性规范。",
+            "若这些假设不成立，Ontolingua 会退化为少数专家可用的转换工具，而非广泛知识共享基础设施。"
+          ],
+          [
+            "替代解释",
+            "知识共享失败可能不是表示语言不可移植，而是组织激励、术语政治、上下文差异和维护成本导致。",
+            "这不会否定论文技术贡献，但会削弱“翻译机制足以推动共享”的实践力度。"
+          ],
+          [
+            "可反证路径",
+            "若大量高价值本体无法落入 Frame Ontology 可识别 idioms，或翻译后目标系统无法保留关键约束，则 portability 主张会被削弱。",
+            "会把论文结论从“通用可移植方法”压缩为“面向常见表示习惯的有限翻译工具”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "目标工具缺少某种表达能力时，如何发现看似成功的翻译丢失了约束？",
+    "如果把 Ontolingua 的思想迁移到今天的 Agent 工具调用协议，哪些部分应当对应 KIF、Frame Ontology、canonical form 和 translator？",
+    "企业内部的“业务术语表”要补充哪些形式化约束，才配称为可执行或可校验的轻量本体？"
+  ],
+  "references": [
+    {
+      "citation": "Thomas R. Gruber．A Translation Approach to Portable Ontology Specifications",
+      "url": "https://www.sciencedirect.com/science/article/pii/S1042814383710083"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "timesfm",
+  "source_id": "3969aae97301f8300da392a7c5309776d8a12ebfe71f64f22fbc28125be2e72c",
+  "title": "TimesFM 如何用预训练模型做零样本预测？",
+  "description": "TimesFM 把连续历史切成片段，用只含解码器的模型一次预测一段未来。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·时间序列预测",
+    "方法·时序基础模型",
+    "方法·零样本迁移"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "a8e1fde738dad3f47bd09be2e26cbb8b40b904972b7f223199ec72f428d1c58e",
+    "identity": "pdf",
+    "revision": "658f896a0370244435889712990bed7ba1b159e8ba92e0b2eab650fe6d9b8411"
+  },
+  "lead": "TimesFM 把连续历史切成片段，用只含解码器的模型一次预测一段未来。跨数据集复用由此变得可测量，也需要和简单季节性方法在具体业务上对照。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "预训练数据来自 Google Trends、Wikipedia Pageviews、合成数据和多个公开时间序列数据源，论文声称总体达到 O(100B) 级别 timepoints。优势是数据规模和形态多样；限制是数据多数为公开、聚合或合成序列，与企业内部多因素经营序列有显著差异。"
+          ],
+          [
+            "样本与边界",
+            "论文重点评测单变量 forecasting，未把动态/静态协变量作为主设定。边界很清晰：如果预测目标强依赖价格、促销、政策、天气、供应中断、节假日或产能约束，单变量零样本结果不能直接代表生产可用性。"
+          ],
+          [
+            "变量 / 测量",
+            "主要指标是 MAE 和 scaled MAE，Monash 与 Darts 用 naive baseline 缩放，ETT 报告 MAE。指标直观，但对极端风险、库存缺货成本、服务水平和不对称损失不敏感。"
+          ],
+          [
+            "架构方法",
+            "TimesFM 使用 input patch length 32、output patch length 128、20 层、1280 model dimension、16 heads、dropout 0.2 的 200M 参数模型。核心创新是长输出 patch 与 decoder-only 预测结合，减少长 horizon 预测的自回归步数。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "趋势、季节性、周期、突变等模式在不同领域之间足够可迁移。",
+            "若企业序列主要受业务干预和结构性约束驱动，零样本迁移会明显变弱。"
+          ],
+          [
+            "隐性假设",
+            "公开和合成数据的统计结构足以代表重要预测模式。",
+            "若预训练语料覆盖不足，模型可能只在公开基准上好看，而在内部经营序列上失效。"
+          ],
+          [
+            "隐性假设",
+            "patch 是时间序列的合适 token 单位。",
+            "若关键变化发生在 patch 内部且被压缩掉，模型会丢失高频事件或短期异常信号。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "面对结构性断点，零样本模型和本地季节性基线谁先失效？",
+    "如果把 TimesFM 用于备品备件预测，哪些协变量是不可省略的：车型保有量、区域、维修政策、促销、季节、里程、质保、供应约束还是价格？",
+    "如果企业真实目标不是降低 MAE，而是降低缺货率与库存资金占用，TimesFM 的评测指标应如何改写？"
+  ],
+  "references": [
+    {
+      "citation": "Abhimanyu Das 等．A Decoder-Only Foundation Model for Time-Series Forecasting",
+      "url": "https://arxiv.org/abs/2310.10688"
+    }
+  ]
+}

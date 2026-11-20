@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "slug": "agent-harness-engineering",
+  "source_id": "ae4c5f942128df4103b3108e02fa933e4ab5d7f101fd10c2ff5c9ae7efc388dc",
+  "title": "长任务智能体出错后，执行环境能恢复到哪一步？",
+  "description": "这份综述把工具接口、上下文、验证与恢复放在同一执行框架中。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·智能体与工具",
+    "方法·执行控制",
+    "方法·工具调用",
+    "方法·上下文工程"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "5257d8bcc16527ff72d0abbece9fb1cc9aa825559c342c89d4ceea32ef2f876a",
+    "identity": "pdf",
+    "revision": "1a1d1dad4be90958c17f19f0ab4590a946ab071ea3b0d2c5812836af37df2548"
+  },
+  "lead": "这份综述把工具接口、上下文、验证与恢复放在同一执行框架中。比较两套智能体时，记录它们在相同故障下的恢复表现，可以更好地区分模型与运行环境的贡献。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "论文正文称映射 170+ open-source projects；附录说明 2026-05-08 快照为 171 public entries、146 GitHub entries、0 broken URLs。外部核对时，伴随 GitHub 仓库在 2026-06-21 标注 Total entries 338，说明项目库可能在论文快照后继续扩张。"
+          ],
+          [
+            "样本与边界",
+            "样本偏英语、GitHub-visible、开源和 coding-agent infrastructure；商业生产系统、非编码 agent、封闭平台内部机制会被低估。"
+          ],
+          [
+            "变量 / 测量",
+            "ETCLOVG 以 primary layer 方式编码项目，利于统计和分类，但会遮蔽多层系统的复合性质。"
+          ],
+          [
+            "识别或评估策略",
+            "论文不是因果识别研究，而是 survey + taxonomy。对 binding-constraint thesis 的支持主要来自 harness-only 改动的 benchmark 案例、项目生态密度和跨层综合。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "公开可见项目能代表 agent harness 生态的真实成熟度；benchmark 提升能代表生产可靠性提升；七层分类能稳定覆盖快速演化的 agent 平台。",
+            "若这些假设不成立，论文的“harness 是约束上限”会退化为“harness 在一部分公开 coding-agent 场景中很重要”。"
+          ],
+          [
+            "替代解释",
+            "Benchmark 提升可能来自任务适配、工具界面与 grader alignment，而非一般性的 harness 工程进步；开源可见层薄弱也可能只是商业平台不公开。",
+            "会削弱生态密度结论，但不会推翻“harness 是关键工程面”的判断。"
+          ],
+          [
+            "可反证路径",
+            "若未来更强模型在同一任务上无需复杂 harness 仍能稳定完成，并且复杂 harness 反而降低质量、速度或安全性，则 thesis 需要改写为“harness 随模型能力自适应收缩”。",
+            "会削弱“harness 是当前约束上限”的普遍强度，但也会强化论文第 12.5 节提出的自适应简化议程。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "某个外部步骤已经成功而确认信息丢失，怎样避免重复执行？",
+    "压力测试：如果模型能力提升 2 倍，哪些 harness 控制应保留，哪些应被撤掉？撤掉的判据是什么？",
+    "压力测试：在汽车企业内部 agent 平台中，ETCLOVG 七层哪一层最可能成为事故源？是工具权限、上下文污染、审计缺失，还是评估不可复现？"
+  ],
+  "references": [
+    {
+      "citation": "Junjie Li 等．Agent Harness Engineering: A Survey",
+      "url": "https://openreview.net/forum?id=3hXEPbG0dh"
+    }
+  ]
+}

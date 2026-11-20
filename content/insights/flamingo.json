@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "flamingo",
+  "source_id": "27af622bf50987fd98a03451a27a670adfaeefd5218a3e990b37abc326ba63f0",
+  "title": "Flamingo 怎样用少量示例连接视觉和语言？",
+  "description": "Flamingo 保留已有视觉和语言模型，通过可训练的连接层融合两类输入。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·模型架构与表征",
+    "方法·视觉语言模型",
+    "方法·注意力机制"
+  ],
+  "reading": {
+    "day": "2026-07-03",
+    "key": "a91a1d7dddd61b15b38b634df39e78de2f55bda0b84f06171deee235d62fbdb4",
+    "identity": "pdf",
+    "revision": "0b5861cacaae5b2ac85f38d7168cf7375b0428c7cf5c88885767547226feb9da"
+  },
+  "lead": "Flamingo 保留已有视觉和语言模型，通过可训练的连接层融合两类输入。交错图文示例让同一模型适配不同任务，也使数据与提示格式成为重要的评测条件。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "训练数据来自 M3W 约 4300 万网页、ALIGN 18 亿图文对、LTIP 3.12 亿图文对、VTP 2700 万视频文本对。优点是规模和模态覆盖强；风险是网页数据许可、质量、偏见和潜在 benchmark 污染难以完全审计。"
+          ],
+          [
+            "样本与边界",
+            "评测覆盖 16 个图像和视频语言 benchmark，包含 VQA、captioning、visual dialogue、video QA、hate memes 等。覆盖面强，但仍以公开数据集为主，真实业务中的长尾视觉流程、交互式纠错和高风险决策不在主要评测内。"
+          ],
+          [
+            "变量 / 测量",
+            "论文使用每个 benchmark 的既有指标，并做相对 fine tuned SOTA 的比较。问题是不同任务指标含义差异大，聚合性能更适合看趋势，不适合当作统一能力分数。"
+          ],
+          [
+            "识别或评估策略",
+            "核心策略是多 benchmark 对比、few shot 与 fine tuned SOTA 对照、模型规模和 shots 扩展实验、组件消融。11 个 held out benchmark 未用于模型设计，能降低开发集过拟合风险。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "假设冻结语言模型的知识和推理先验可迁移到视觉任务；假设网页交错图文能代表多模态上下文结构；假设 few shot prompt 能稳定定义任务。",
+            "如果这些假设只在公开 benchmark 上成立，Flamingo 的真实价值会从“通用视觉智能接口”降级为“高成本 benchmark 强模型”。"
+          ],
+          [
+            "替代解释",
+            "性能提升可能主要来自 Chinchilla 级语言模型、巨大训练数据和计算规模，而非某个具体结构创新。",
+            "不会否定 Flamingo 整体有效，但会削弱“架构创新独立贡献”的力度。"
+          ],
+          [
+            "可反证路径",
+            "若在严格去重、私有长尾数据、同等规模替代架构、固定 prompt 预算下，Flamingo 的优势显著下降，则主张会被削弱。按 Popper-1959 的可反证视角，最强测试不是复现公开表格，而是在不可预见的新视觉语言任务上检验。",
+            "可把结论从“新范式成立”压缩为“特定训练数据和评测条件下的强经验结果”。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "改变图文示例的顺序，对同一个问题的结果有多大影响？",
+    "如果严格排除所有训练数据与公开 benchmark 的潜在重叠，Flamingo 的少样本优势会下降多少？",
+    "如果把 Flamingo 的连接器思想迁移到企业内部系统，哪些能力应该被冻结，哪些连接层应该允许训练或配置？"
+  ],
+  "references": [
+    {
+      "citation": "Jean-Baptiste Alayrac 等．Flamingo: a Visual Language Model for Few-Shot Learning",
+      "url": "https://arxiv.org/abs/2204.14198"
+    }
+  ]
+}

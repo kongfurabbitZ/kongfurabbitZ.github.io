@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 import re
 from urllib.parse import urlsplit, urljoin
+import reading_catalog as catalog
 import xml.etree.ElementTree as ET
 
 SITE = "https://kongfurabbitz.github.io"
@@ -23,7 +24,14 @@ REPOSITORY = "kongfurabbitZ/kongfurabbitZ.github.io"
 BEGIN = "<!-- REPORT_INSIGHTS:START -->"
 END = "<!-- REPORT_INSIGHTS:END -->"
 FIELDS = {"schema_version", "slug", "source_id", "title", "description", "published", "updated", "tags", "lead", "sections", "questions", "references"}
-PRIVATE = re.compile(r"(?:https?://(?:[^/\s]*\.)?(?:notion\.(?:so|site)|app\.notion\.com)/|notion-file-block:|(?:/Volumes/|/Users/|/private/tmp/|/home/)|(?:secret_|ntn_|ghp_|github_pat_)[A-Za-z0-9_]{12,}|Bearer\s+[A-Za-z0-9._-]+|产业数智化中心|长城汽车股份有限公司|个人行动明细|为什么适合我|最小下一步|REPORT_WORKSPACE|NOTION_API_TOKEN)", re.I)
+PRIVATE = re.compile(r"(?:https?://(?:[^/\s]*\.)?(?:notion\.(?:so|site)|app\.notion\.com)/|notion-file-block:|(?:/Volumes/|/Users/|/private/tmp/|/home/)|(?:secret_|ntn_|ghp_|github_pat_)[A-Za-z0-9_]{12,}|Bearer\s+[A-Za-z0-9._-]+)", re.I)
+# Editorial installations may maintain their own local exclusions outside the public site.
+rules_path = Path(__file__).resolve().parents[1] / "config" / "publication_exclusions.txt"
+if rules_path.is_file():
+    terms = [line.strip() for line in rules_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    if terms:
+        PRIVATE = re.compile(PRIVATE.pattern + "|" + "|".join(re.escape(term) for term in terms), re.I)
+
 
 
 def canonical(value):
@@ -52,10 +60,18 @@ def public_url(value):
 
 
 def validate(article):
-    require(isinstance(article, dict) and set(article) == FIELDS, "Unknown or missing public article fields")
+    require(isinstance(article, dict) and FIELDS <= set(article) <= FIELDS | {"reading"}, "Unknown or missing public article fields")
     require(article["schema_version"] == 1, "Unsupported article schema")
     require(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", article["slug"]) is not None and len(article["slug"]) < 100, "Invalid slug")
-    require(re.fullmatch(r"[a-f0-9]{64}", article["source_id"]) is not None, "source_id must be source PDF SHA-256")
+    require(re.fullmatch(r"[a-f0-9]{64}", article["source_id"]) is not None, "Invalid source identity SHA-256")
+    require(article["slug"] not in {"tags", "timeline"}, "Reserved catalog path")
+    if "reading" in article:
+        reading = article["reading"]
+        require(isinstance(reading, dict) and set(reading) == {"day", "key", "identity", "revision"}, "Invalid paper metadata")
+        require(date.fromisoformat(reading["day"]).isoformat() == reading["day"], "Invalid reading date")
+        require(re.fullmatch(r"[a-f0-9]{64}", reading["key"]) is not None, "Invalid reading record key")
+        require(re.fullmatch(r"[a-f0-9]{64}", reading["revision"]) is not None, "Invalid source revision")
+        require(reading["identity"] in {"pdf", "bibliography"}, "Invalid source identity type")
     for key, maximum in (("title", 100), ("description", 240), ("lead", 1000)):
         text(article[key], key, maximum=maximum)
     for key in ("published", "updated"):
@@ -131,13 +147,15 @@ def shared_chrome(home):
     profile = fragment("header", "header")
     # The page title owns h1; retain the profile's appearance without a second h1.
     profile = profile.replace("<h1>", '<p class="profile-name">').replace("</h1>", "</p>")
-    return profile, fragment("footer", "footer")
+    footer = fragment("footer", "footer")
+    footer = re.sub(r'<ul class="icons">.*?</ul>', '<ul class="icons"><li><a href="/#three">联系博文</a></li></ul>', footer, flags=re.S)
+    return profile, footer
 
 
 def shell(title, description, path, body, article_hash="", chrome=None):
     stamp = f'<meta name="insight-content-sha256" content="{article_hash}">' if article_hash else ""
     profile, footer = chrome or ("", "")
-    links = [("/", "个人主页"), ("/insights/", "报告洞察"), ("/insights/feed.xml", "RSS 订阅")]
+    links = [("/", "个人主页"), ("/insights/", "全部文章"), ("/insights/timeline/", "研读甘特图"), ("/insights/tags/", "标签目录"), ("/insights/feed.xml", "RSS 订阅")]
     navigation = "".join(f'<a href="{href}"'+(' aria-current="page"' if path == href else '')+f'>{label}</a>' for href, label in links)
     scripts = "".join(f'<script src="/assets/js/{name}.js"></script>' for name in ("jquery.min", "jquery.poptrox.min", "browser.min", "breakpoints.min", "util", "main"))
     return f'''<!doctype html>
@@ -145,18 +163,22 @@ def shell(title, description, path, body, article_hash="", chrome=None):
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{escape(title)} · 兔子的蓝天</title><meta name="description" content="{escape(description, quote=True)}">
 <link rel="canonical" href="{SITE}{path}"><meta property="og:type" content="article"><meta property="og:title" content="{escape(title, quote=True)}"><meta property="og:description" content="{escape(description, quote=True)}"><meta property="og:url" content="{SITE}{path}">
-{stamp}<link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/css/insights.css"><link rel="alternate" type="application/rss+xml" title="报告洞察" href="/insights/feed.xml"></head>
+{stamp}<link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="/assets/css/insights.css"><link rel="stylesheet" href="/assets/css/reading-catalog.css"><script defer src="/assets/js/reading-catalog.js"></script><link rel="alternate" type="application/rss+xml" title="报告洞察" href="/insights/feed.xml"></head>
 <body class="insights-page"><a class="skip-link" href="#content">跳到正文</a>{profile}
 <main id="main"><nav class="site-nav" aria-label="主导航">{navigation}</nav><section id="content">{body}</section><p class="reading-note">以研究理解变化，以实践检验判断。<br>文章为个人阅读与分析，原报告及所引研究的权利归各自作者所有。</p></main>{footer}{scripts}</body></html>
 '''
 
 
 def tags(article):
-    return "".join(f'<span class="tag">{escape(tag)}</span>' for tag in article["tags"])
+    return catalog.tag_links(article)
 
 
 def card(article, level=2):
-    return f'''<article class="insight-card" data-search="{escape(article['title'] + ' ' + article['description'] + ' ' + ' '.join(article['tags']), quote=True)}"><div class="meta"><time datetime="{article['published']}">{article['published']}</time><span>报告解读</span></div><h{level}><a href="/insights/{article['slug']}/">{escape(article['title'])}</a></h{level}><p>{escape(article['description'])}</p><div>{tags(article)}</div><a class="read-link" href="/insights/{article['slug']}/">阅读全文 →</a></article>'''
+    kind = "论文研读" if "reading" in article else "报告洞察"
+    day = article.get("reading", {}).get("day", article["published"])
+    event = "研读入库" if "reading" in article else "发布"
+    url = catalog.article_url(article)
+    return f'''<article class="insight-card" data-item {catalog.attributes(article)}><div class="meta"><span>{kind}</span><time datetime="{day}">{event} {day}</time></div><h{level}><a href="{url}">{escape(article['title'])}</a></h{level}><p>{escape(article['description'])}</p><div>{tags(article)}</div></article>'''
 
 
 def render_article(article, chrome=None):
@@ -180,21 +202,23 @@ def render_article(article, chrome=None):
         label = escape(ref["citation"])
         refs.append(f'<li><a href="{escape(ref["url"], quote=True)}" rel="noreferrer">{label}</a></li>' if ref.get("url") else f'<li>{label}</li>')
     questions = "".join(f'<li>{escape(q)}</li>' for q in article["questions"])
-    body = f'''<p class="eyebrow">研究 · 思考 · 实践</p><h1>{escape(article['title'])}</h1><p class="intro">{escape(article['description'])}</p><div class="meta"><span>博文</span><time datetime="{article['published']}">发布于 {article['published']}</time><time datetime="{article['updated']}">更新于 {article['updated']}</time></div><div class="article-tags">{tags(article)}</div><div class="article-layout"><details class="article-aside"><summary>本文目录</summary><nav aria-label="文章目录">{''.join(toc)}<a href="#questions">值得继续追问</a><a href="#references">来源与阅读说明</a></nav></details><article class="article-body"><p class="lead">{escape(article['lead'])}</p>{''.join(sections)}<section id="questions"><h2>值得继续追问</h2><ol>{questions}</ol></section><section class="references" id="references"><h2>来源与阅读说明</h2><ol>{''.join(refs)}</ol><p>本文是基于原报告的独立整理与分析。文中建议需结合具体情境验证；研究结论与作者推断的边界在正文中分别说明。</p></section><p><a href="/insights/">← 返回全部报告洞察</a></p></article></div>'''
+    reading_stamp = ""
+    if "reading" in article:
+        day = article["reading"]["day"]
+        reading_stamp = f'<time datetime="{day}">研读入库 {day}</time>'
+    body = f'''<h1>{escape(article['title'])}</h1><p class="intro">{escape(article['description'])}</p><div class="meta"><span>博文</span>{reading_stamp}<time datetime="{article['published']}">发布于 {article['published']}</time><time datetime="{article['updated']}">更新于 {article['updated']}</time></div><div class="article-tags">{tags(article)}</div><div class="article-layout"><details class="article-aside"><summary>本文目录</summary><nav aria-label="文章目录">{''.join(toc)}<a href="#questions">值得继续追问</a><a href="#references">来源与阅读说明</a></nav></details><article class="article-body"><p class="lead">{escape(article['lead'])}</p>{''.join(sections)}<section id="questions"><h2>值得继续追问</h2><ol>{questions}</ol></section><section class="references" id="references"><h2>来源与阅读说明</h2><ol>{''.join(refs)}</ol><p>本文为独立研读与分析，出处见上。</p></section><p><a href="/insights/">← 返回全部文章</a></p></article></div>'''
     return shell(article["title"], article["description"], f"/insights/{article['slug']}/", body, digest(article), chrome=chrome)
 
 
 def render_archive(articles, chrome=None):
-    search = '''<label class="search-label" for="insights-search">搜索标题、主题或关键词<input class="insights-search" id="insights-search" type="search" placeholder="例如：AI、组织、生产率" autocomplete="off"></label>'''
-    script = '''<script>const search=document.querySelector('#insights-search');const cards=[...document.querySelectorAll('.insight-card')];search.addEventListener('input',()=>{const terms=search.value.trim().toLocaleLowerCase().split(/\\s+/).filter(Boolean);let count=0;cards.forEach(card=>{card.hidden=!terms.every(term=>card.dataset.search.toLocaleLowerCase().includes(term));if(!card.hidden)count++;});document.querySelector('#search-count').textContent=count+' 篇文章';});</script>'''
-    body = f'''<p class="eyebrow">研究 · 思考 · 实践</p><h1>报告洞察</h1><p class="intro">把长报告里的重要判断、证据边界和实践启发，整理成可以读懂、讨论和使用的文章。关注 AI、组织与数字化，也关注技术如何走进真实生活。</p>{search}<p class="meta" id="search-count" role="status" aria-live="polite">{len(articles)} 篇文章</p><div class="insight-grid">{''.join(card(a) for a in articles)}</div>{script}'''
-    return shell("报告洞察", "博文的报告解读：AI、组织、数字化与实践思考。", "/insights/", body, chrome=chrome)
+    body = f'''<div data-catalog="archive"><h1>全部文章</h1><p class="intro">从论文的方法与实验，到行业报告的判断与证据。</p>{catalog.filters(articles)}<p data-count class="catalog-count" role="status">{len(articles)} 篇文章</p><div class="insight-grid">{''.join(card(a) for a in articles)}</div><p data-empty hidden>没有匹配的文章，试试其他标签或关键词。</p></div>'''
+    return shell("全部文章", "按主题与方法浏览博文的论文研读和报告洞察。", "/insights/", body, chrome=chrome)
 
 
 def render_feed(articles):
     rss = ET.Element("rss", version="2.0")
     channel = ET.SubElement(rss, "channel")
-    for key, value in (("title", "兔子的蓝天 · 报告洞察"), ("link", SITE + "/insights/"), ("description", "研究、思考与实践"), ("language", "zh-CN")):
+    for key, value in (("title", "兔子的蓝天 · 论文与报告"), ("link", SITE + "/insights/"), ("description", "研究、思考与实践"), ("language", "zh-CN")):
         ET.SubElement(channel, key).text = value
     for article in articles:
         item = ET.SubElement(channel, "item")
@@ -204,35 +228,51 @@ def render_feed(articles):
 
 
 def build(repo, incoming):
+    result = build_many(repo, [incoming])
+    return result | {"slug": incoming["slug"], "url": SITE + catalog.article_url(incoming),
+                     "source_id": incoming["source_id"], "content_sha256": digest(incoming)}
+
+
+def build_many(repo, incoming_articles):
     repo = Path(repo).resolve()
     require((repo / "index.html").is_file(), "Read the existing homepage before preparing a publication")
     chrome = shared_chrome((repo / "index.html").read_text(encoding="utf-8"))
-    incoming = validate(incoming)
     articles = {}
     for path in sorted((repo / "content/insights").glob("*.json")):
         article = validate(json.loads(path.read_text(encoding="utf-8")))
         require(path.stem == article["slug"], "Article path and slug differ")
         articles[article["slug"]] = article
-    for slug, article in articles.items():
-        require(article["source_id"] != incoming["source_id"] or slug == incoming["slug"], "This report already has a public URL; update that slug instead")
-    if incoming["slug"] in articles:
-        old = articles[incoming["slug"]]
-        require(old["source_id"] == incoming["source_id"], "Existing slug belongs to a different report")
-        require(old["published"] == incoming["published"], "Keep the original publication date on update")
-        require(old["updated"] <= incoming["updated"], "Do not overwrite a newer article")
-    articles[incoming["slug"]] = incoming
-    ordered = sorted(articles.values(), key=lambda a: (a["published"], a["slug"]), reverse=True)
+    for incoming in incoming_articles:
+        validate(incoming)
+        slug = incoming["slug"]
+        old = articles.get(slug)
+        if old:
+            require(old["source_id"] == incoming["source_id"], "Existing slug belongs to a different source")
+            require(old["published"] == incoming["published"], "Keep the original publication date")
+            require(old["updated"] <= incoming["updated"], "Do not overwrite a newer article")
+            if "reading" in old:
+                require(incoming.get("reading", {}).get("key") == old["reading"]["key"], "Reading identity changed")
+        articles[slug] = incoming
+    ordered = sorted(articles.values(), key=catalog.ordered_key, reverse=True)
+    require(len({a["source_id"] for a in ordered}) == len(ordered), "This source already has a public URL; use the existing slug")
+    keys = [a["reading"]["key"] for a in ordered if "reading" in a]
+    require(len(set(keys)) == len(keys), "This paper already has a public URL")
     output = {"assets/css/insights.css": CSS, "insights/index.html": render_archive(ordered, chrome=chrome), "insights/feed.xml": render_feed(ordered)}
+    output["insights/tags/index.html"] = shell("按标签浏览", "全站主题和方法标签", "/insights/tags/", catalog.tag_directory(ordered), chrome=chrome)
+    output["insights/timeline/index.html"] = shell("论文研读甘特图", "按入库日期浏览论文研读", "/insights/timeline/", catalog.render_timeline(ordered), chrome=chrome)
+    for asset in ("assets/css/reading-catalog.css", "assets/js/reading-catalog.js"):
+        output[asset] = (Path(__file__).resolve().parents[1] / asset).read_text(encoding="utf-8")
     for article in ordered:
         output[f"content/insights/{article['slug']}.json"] = json.dumps(article, ensure_ascii=False, indent=2) + "\n"
         output[f"insights/{article['slug']}/index.html"] = render_article(article, chrome=chrome)
-    index = [{key: a[key] for key in ("slug", "source_id", "title", "description", "published", "updated", "tags")} | {"url": SITE + f"/insights/{a['slug']}/", "content_sha256": digest(a)} for a in ordered]
+    index = [{key: a[key] for key in ("slug", "source_id", "title", "description", "published", "updated", "tags")} | ({"reading": a["reading"]} if "reading" in a else {}) | {"kind": "paper" if "reading" in a else "report", "url": SITE + f"/insights/{a['slug']}/", "content_sha256": digest(a)} for a in ordered]
     output["insights/index.json"] = json.dumps({"schema_version": 1, "articles": index}, ensure_ascii=False, indent=2) + "\n"
     home_path = repo / "index.html"
     home = home_path.read_bytes().decode("utf-8")
     newline = "\r\n" if "\r\n" in home else "\n"
+    original_home = home
     section = f'''{BEGIN}
-<section id="report-insights" class="report-insights"><p class="eyebrow">研究 · 思考 · 实践</p><h2>报告洞察</h2><p>从长报告中提炼重要判断，把证据、边界与实践启发分享给更多读者。</p><div class="insight-grid">{''.join(card(a, 3) for a in ordered[:3])}</div><ul class="actions"><li><a class="button" href="/insights/">阅读全部报告洞察</a></li><li><a href="/insights/feed.xml">RSS 订阅</a></li></ul></section>
+<section id="report-insights" class="report-insights">{catalog.home_tools(ordered)}<h3>最近研读</h3><div class="insight-grid">{''.join(card(a, 3) for a in sorted((a for a in ordered if "reading" in a), key=lambda a: a["reading"]["day"], reverse=True)[:3])}</div><h3>最近报告</h3><div class="insight-grid">{''.join(card(a, 3) for a in [a for a in ordered if "reading" not in a][:3])}</div><a href="/insights/feed.xml">RSS 订阅</a></section>
 {END}'''.replace("\n", newline)
     require(home.count(BEGIN) == home.count(END) and home.count(BEGIN) <= 1, "Homepage publication markers are malformed")
     if BEGIN in home:
@@ -244,7 +284,14 @@ def build(repo, incoming):
         home = home.replace(anchor, section + newline + newline + "\t\t\t\t" + anchor)
     if 'href="/assets/css/insights.css"' not in home:
         home = home.replace("</head>", '<link rel="stylesheet" href="/assets/css/insights.css" />' + newline + "\t</head>", 1)
-    output["index.html"] = home
+    if 'href="/assets/css/reading-catalog.css"' not in home:
+        home = home.replace("</head>", '<link rel="stylesheet" href="/assets/css/reading-catalog.css" />' + newline + "</head>", 1)
+    home = home.replace("从报告出发，", "从论文与报告出发，").replace("阅读报告洞察</a>", "浏览全部文章</a>")
+    output["insights/home-fragment.html"] = section.split(BEGIN, 1)[1].split(END, 1)[0].strip() + "\n"
+    # The original Strata page already loads main.js. Serve the library in its own
+    # fragment so a research publication never republishes the personal contact block.
+    existing_strata = 'src="assets/js/main.js"' in original_home and BEGIN in original_home
+    output["index.html"] = original_home if existing_strata else home
     changed = []
     for name, content in output.items():
         path = (repo / name).resolve()
@@ -253,7 +300,7 @@ def build(repo, incoming):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(content.encode("utf-8"))
             changed.append(name)
-    return {"schema_version": 1, "repository": REPOSITORY, "branch": "master", "slug": incoming["slug"], "url": SITE + f"/insights/{incoming['slug']}/", "source_id": incoming["source_id"], "content_sha256": digest(incoming), "changed_paths": changed, "expected_paths": sorted(output), "article_count": len(ordered)}
+    return {"schema_version": 1, "repository": REPOSITORY, "branch": "master", "changed_paths": changed, "expected_paths": sorted(output), "article_count": len(ordered)}
 
 
 def main():

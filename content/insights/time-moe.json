@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "time-moe",
+  "source_id": "6777a5dcf0286aa9c042e3d4914d2faf8ededbf1f84b493e27a04989d2d2178d",
+  "title": "Time-MoE 的十亿级参数，每次预测都要用到吗？",
+  "description": "稀疏路由让总参数量和一次预测激活的参数量分离。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·时间序列预测",
+    "方法·时序基础模型",
+    "方法·混合专家"
+  ],
+  "reading": {
+    "day": "2026-07-02",
+    "key": "daaaf40dd89718cdfa362758fba0982d0da22c08317e329a0eb66fbfc68de260",
+    "identity": "pdf",
+    "revision": "abf1223f52598d731ac5c4b10ba5ccb44e69eb9cd9031189cb8a719481df16b0"
+  },
+  "lead": "稀疏路由让总参数量和一次预测激活的参数量分离。比较这类基础模型，既要看跨域误差，也要在相同延迟、显存和数据条件下测量代价。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "Time-300B 由公开数据和合成数据构成，约 48.22M 序列、309.09B 时间点，作者提供数据清洗流程并称开源。优点是规模大、可访问；主要风险是分布严重不均，Nature 约 279.724B 时间点，占 90.50%，Finance 与 Healthcare 几乎可忽略。"
+          ],
+          [
+            "样本与边界",
+            "主实验使用 ETTh1、ETTh2、ETTm1、ETTm2、Weather、Global Temp 六个 benchmark，并说明这些数据未纳入预训练语料。边界是 benchmark 领域偏窄，不能完全代表 Time-300B 的九类领域，也不能直接代表企业销售、库存、金融、运维等复杂外生变量任务。"
+          ],
+          [
+            "变量 / 测量",
+            "主要指标是 MSE 和 MAE，适合长序列预测基准比较；但没有充分覆盖概率预测、校准、异常事件、业务成本函数、服务水平损失等生产指标。"
+          ],
+          [
+            "识别或评估策略",
+            "以方法评测为主。核心证据包括 zero-shot 对比 Moirai、TimesFM、Moment、Chronos；in-domain fine-tuning 对比 iTransformer、TimeMixer、TimesNet、PatchTST 等；以及 dense vs sparse、组件消融、top-k 敏感性和 BF16/FP32 效率分析。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "Time-300B 的大规模数据能代表广泛真实预测场景。",
+            "Nature 类占比 90.50%，如果模型能力主要来自某类高频自然/气候数据，跨行业泛化可能被高估。"
+          ],
+          [
+            "隐性假设",
+            "channel independence 足以支持任意变量问题。",
+            "多变量业务场景常依赖变量间因果或结构关系，独立处理可能削弱供应链、金融、运维系统预测。"
+          ],
+          [
+            "隐性假设",
+            "MSE / MAE 改善可以代表业务价值改善。",
+            "在库存、能源调度、风险预警中，预测分位数、置信区间、尾部风险和非对称成本更重要。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "当输入换到罕见领域，专家路由还能保持同样的效率吗？",
+    "如果把评测指标从 MSE/MAE 换成库存缺货成本、能源调度成本或风险预警漏报成本，Time-MoE 的优势是否仍成立？",
+    "在强多变量交互的企业场景中，channel independence 与 MoE 专家路由是否会漏掉关键变量关系？"
+  ],
+  "references": [
+    {
+      "citation": "Xiaoming Shi 等．Time-MoE: Billion-Scale Time Series Foundation Models with Mixture of Experts",
+      "url": "https://arxiv.org/abs/2409.16040"
+    }
+  ]
+}

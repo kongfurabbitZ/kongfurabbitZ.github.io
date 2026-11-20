@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "graph-convolutional-networks",
+  "source_id": "a654f884db04a317b0f2414a83f2ba32a9f8442d29bcf1cb5f73f7af78a98070",
+  "title": "少量标签怎样沿着图结构帮助分类？",
+  "description": "GCN 的一阶传播层把邻居与自身特征加权组合，让标签稀少的节点也能借到局部结构的信息。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·图学习",
+    "方法·图卷积",
+    "方法·图神经网络"
+  ],
+  "reading": {
+    "day": "2026-07-09",
+    "key": "f3ff980fb8accc0907cd3c382395cf9f5ccc2967992db905ad8d0d5a48af4b16",
+    "identity": "pdf",
+    "revision": "86de0febd263e487b367edea4a2a69a1e6e729b1afc0c22a7d2aeaf13baa6301"
+  },
+  "lead": "GCN 的一阶传播层把邻居与自身特征加权组合，让标签稀少的节点也能借到局部结构的信息。邻居关系表达什么，直接决定传播有益还是有害。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "问题定义",
+            "清晰限定为 transductive semi-supervised node classification，即训练时可见完整图和节点特征，只在部分节点上有标签。"
+          ],
+          [
+            "理论来源",
+            "从谱图卷积、Chebyshev 多项式近似、一阶局部化逐步推出传播规则，论证比纯经验模型更稳。"
+          ],
+          [
+            "实验数据",
+            "使用 Citeseer、Cora、Pubmed 三个引用网络和 NELL 知识图谱；覆盖节点数从 2708 到 65755，边数从 4723 到 266144。"
+          ],
+          [
+            "对照方法",
+            "覆盖 ManiReg、SemiEmb、LP、DeepWalk、ICA、Planetoid 等，当时比较合理。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "反证场景",
+          "预期风险",
+          "检验方式"
+        ],
+        "rows": [
+          [
+            "异配图",
+            "邻居聚合把不同类别混在一起",
+            "在 Chameleon、Squirrel、Actor 等 heterophily 数据上测试"
+          ],
+          [
+            "噪声边",
+            "错误连接造成标签信号污染",
+            "随机扰动边并测准确率下降曲线"
+          ],
+          [
+            "动态图",
+            "静态邻接矩阵过期",
+            "按时间切片训练和测试"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "如果相连节点往往属于不同类别，多加一层传播会发生什么？",
+    "固定标签数量后，增加邻居信息的收益如何随同类相连比例变化？",
+    "哪些图应保留自连接，改变归一化会带来什么差异？"
+  ],
+  "references": [
+    {
+      "citation": "Thomas N. Kipf 等．Semi-Supervised Classification with Graph Convolutional Networks",
+      "url": "https://arxiv.org/abs/1609.02907"
+    }
+  ]
+}

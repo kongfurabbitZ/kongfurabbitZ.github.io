@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "slug": "semantic-layer-nl2sql",
+  "source_id": "598269797191ff34bd808934a4b75e420118732735205398bb2f01c42dc3796c",
+  "title": "让 AI 查企业数据库，语义层解决了哪一步？",
+  "description": "语义层为模型提供可复用的业务定义和连接关系，智能体再补齐复杂查询。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·企业数据问答",
+    "方法·语义层",
+    "方法·Text-to-SQL",
+    "方法·企业数据"
+  ],
+  "reading": {
+    "day": "2026-08-25",
+    "key": "ad99661f5d7def313d65d61ebad18001ea64420ee7a81546433bd8a0948d8d5e",
+    "identity": "pdf",
+    "revision": "27463f4fae0834b3a85c78a0cf036f924dd9ac33aa922e885ca2883fcfbf63ba"
+  },
+  "lead": "语义层为模型提供可复用的业务定义和连接关系，智能体再补齐复杂查询。看待高分时，既要算模型能力，也要算人工准备语义层和维护这些定义的成本。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "唯一实证数据是 Spider2-snow 的 547 项任务。它们来自 SQLite、GA4、BigQuery 与 native Snowflake 类别，但都被转换并在 Snowflake 上执行。来源异质性存在，执行后端异质性没有在主结果中被验证。"
+          ],
+          [
+            "样本与边界",
+            "总体 515/547。分组为 SQLite-origin 131/135、GA4-origin 24/25、BigQuery-origin 350/369、native Snowflake 10/18。总体由前两大类别主导；native Snowflake 只有 18 例且准确率 55.6%，既高方差，也提醒“原生 Snowflake 企业任务”仍是明显弱项。"
+          ],
+          [
+            "变量 / 测量",
+            "使用官方 Spider2 execution-result matching。它比字符串 SQL 匹配更接近功能正确性，但可能因为有限数据碰巧得到相同结果而高估，也可能因排序、精度或等价表达处理而低估；论文在 Limitations 中承认会 over-credit 或 under-credit。"
+          ],
+          [
+            "识别或评估策略",
+            "Gemini 3 Pro preview，温度 0.1，extended thinking 为 high，输出预算 16,384 tokens，每例最多 20 次 SMQ。论文与 DAIL-SQL、Spider-Agent、ReFoRCE 排行榜结果比较，但没有用同一 Gemini、同一预算分别运行 raw schema、仅 semantic descriptions、仅 deterministic compiler 和完整系统，因此不能识别各组件的独立增益。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "语义层是在不读取测试答案的条件下建立；描述只编码可复用知识；五行预览不会形成 benchmark 特定探测；用户问题所需元素大多已被暴露。",
+            "任一假设失效，都可能把系统泛化能力与测试集记忆混在一起。"
+          ],
+          [
+            "替代解释",
+            "高分可能来自 Gemini 3 Pro extended thinking、手工答案导向的语义层、最多 20 次 SMQ 预览，或 benchmark 转换后与语义模型高度对齐，而不是 mediation 机制本身。",
+            "中央因果主张会收缩为“高投入 context engineering 能显著改善此 benchmark”。"
+          ],
+          [
+            "可反证路径",
+            "在不知道测试问题时冻结语义层；对新问题、新 schema 版本和真实多后端运行盲测；固定模型与预算做组件消融；报告构建工时和单位新增任务维护成本。",
+            "若冻结后准确率大跌、自动生成语义层无效或维护成本超过人工 SQL，生产价值会明显下降。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "换到一个没有现成语义模型的数据库，时间首先会花在哪里？",
+    "如果语义层在完全看不到 547 项问题与 gold SQL 时冻结，再对时间外新问题评测，94.15% 会保留多少？",
+    "如果固定 Gemini 3 Pro、extended thinking、20 次工具预算，只分别移除业务描述、join graph、确定性编译和结果预览，各组件的边际贡献是多少？"
+  ],
+  "references": [
+    {
+      "citation": "Ha Jeong Kim 等．A Semantic-Layer-Mediated Agent for Natural Language to SQL over Heterogeneous Enterprise Databases",
+      "url": "https://arxiv.org/abs/2606.31041"
+    }
+  ]
+}

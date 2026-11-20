@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "shift-up-guardrails",
+  "source_id": "3bf7bcbb3eee3cd223625ee59935f4b63d6d4a76fdda0b956f4675f06ca5f4f8",
+  "title": "让架构决策和验收示例参与 AI 编程",
+  "description": "Shift-Up 尝试让行为示例、架构图和决策记录成为生成与检查代码的依据。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·AI原生软件工程",
+    "方法·工程护栏",
+    "方法·代码智能体"
+  ],
+  "reading": {
+    "day": "2026-07-03",
+    "key": "d5c10966f023c256db031ea4eb882303002121e4d04afce3c554173f122cd4b8",
+    "identity": "pdf",
+    "revision": "d0d23944273a340285696ea04f1681904a230f901e199a0fd684629ae1ac92f1"
+  },
+  "lead": "Shift-Up 尝试让行为示例、架构图和决策记录成为生成与检查代码的依据。值得验证的是，这些工程制品究竟在哪些改动中减少了偏离设计的返工。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "研究对象是一个在线 snack-bar full-stack web app，涉及 GUI、PostgreSQL、admin system 和 backend logic；初步分析 176 条 prompt。"
+          ],
+          [
+            "样本与边界",
+            "单一应用、单一研究设置、初步结果；适合形成设计知识，不足以证明普遍效果。"
+          ],
+          [
+            "变量 / 测量",
+            "关注 Agent autonomy、drift、traceability、prompt pattern、upfront investment、automated validation。"
+          ],
+          [
+            "识别或评估策略",
+            "比较三种开发范式，但不是随机实验；更像探索性设计科学评价。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题",
+          "对结论的影响"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "BDD、C4、ADR 能被及时、准确、低成本维护；Agent 能理解并遵守这些制品；自动测试能覆盖关键行为。",
+            "若制品维护成本高或质量低，Shift-Up 可能变成“高仪式感的慢流程”。"
+          ],
+          [
+            "替代解释",
+            "改善可能来自开发者更认真地思考需求和架构，而不是制品被 Agent 使用本身。",
+            "会削弱“机器可读护栏”的独特贡献，但仍支持结构化开发前置。"
+          ],
+          [
+            "可反证路径",
+            "若在多个复杂项目中，Shift-Up 与结构化 prompt engineering 的质量差异不显著，而前置成本更高，则框架需要收缩到高风险或高复杂场景。",
+            "会把 Shift-Up 从通用流程变成场景化治理方法。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "一次需求变化后，如何识别已过期、会误导代码生成的决策记录？",
+    "对企业内部 AI 生成应用，哪些制品是最低必要护栏，哪些会变成过度流程？",
+    "BDD、C4、ADR 如何转成 Agent 可直接消费的上下文格式和版本策略？"
+  ],
+  "references": [
+    {
+      "citation": "Petrus Lipsanen 等．Shift-Up: A Framework for Software Engineering Guardrails in AI-native Software Development - Initial Findings",
+      "url": "https://arxiv.org/abs/2604.20436"
+    }
+  ]
+}

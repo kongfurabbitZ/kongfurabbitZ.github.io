@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "verbalizable-workspace",
+  "source_id": "41a7edff8e025a5dd2f1772581c5816d5f9c3bcba8f4e2eefa302160439ca2fe",
+  "title": "语言模型能说出的内部表征，能被哪些计算读取？",
+  "description": "作者研究一组可报告、可干预的内部表征，考察它们能否在不同计算之间传递信息。",
+  "published": "2026-11-20",
+  "updated": "2026-11-20",
+  "tags": [
+    "论文",
+    "主题·模型架构与表征",
+    "方法·可解释性",
+    "方法·表示学习"
+  ],
+  "reading": {
+    "day": "2026-07-08",
+    "key": "bc75d281ef4d71d677b23cd5f36dc6efb3ceffbc13ef321b5ab12186e58381a8",
+    "identity": "bibliography",
+    "revision": "c1bcbc12cb1111a399c381d87d91d4d92d08606bc0a6c4c77338f32d8ba7d8be"
+  },
+  "lead": "作者研究一组可报告、可干预的内部表征，考察它们能否在不同计算之间传递信息。实验中的功能相似性为后续验证提出了问题，无法单独回答关于意识的命题。",
+  "sections": [
+    {
+      "heading": "研究方法与证据",
+      "table": {
+        "headers": [
+          "维度",
+          "评估"
+        ],
+        "rows": [
+          [
+            "数据 / 来源",
+            "主要数据来自 Claude 系列模型的中间激活、预训练式 prompt corpus、合成任务、对齐审计 transcript、后训练对比和反事实反思训练 benchmark。优势是能做内部状态干预；局限是对外部研究者而言，完整模型和部分内部数据不可完全复现。"
+          ],
+          [
+            "样本与边界",
+            "模型覆盖 Haiku 4.5、Sonnet 4.5、Opus 4.5 和部分 Opus 4.6，说明不是单一规模偶然现象；但仍主要局限于一个模型家族，跨架构、跨语言、跨开源模型的泛化需要独立验证。"
+          ],
+          [
+            "变量 / 测量",
+            "核心测量是 J-lens token rank、cosine similarity、workspace loading、sparse decomposition、swap success、ablation effect、LLM grader score 等。测量与假设绑定紧密，但对 tokenization 和 grader 质量敏感。"
+          ],
+          [
+            "识别或评估策略",
+            "强项是从相关读数走向因果干预：swap、steering、ablation、clamping、组件分解和训练后消融共同构成多重证据链。按照 Popper-1959 的可反证标准，若干实验已经给出可以失败的预测。"
+          ]
+        ]
+      }
+    },
+    {
+      "heading": "结论的适用条件",
+      "table": {
+        "headers": [
+          "批判维度",
+          "具体问题"
+        ],
+        "rows": [
+          [
+            "隐性假设",
+            "可言说性被当作 access 的关键入口；但模型可能有不可言说却可广播的内部格式，也可能有可言说但非中心的伴随表征。"
+          ],
+          [
+            "可反证路径",
+            "在开源模型、非英文任务、多 token 概念、关系推理或视觉语言任务中，如果可言说方向不能预测或干预内部推理，核心论点需收缩。"
+          ],
+          [
+            "边界条件",
+            "作者自己承认：单 token 概念、bag of concepts、解释不一致、workspace 和 motor 分界、哪些任务必须进入 J-space 等问题仍未解决。"
+          ]
+        ]
+      }
+    }
+  ],
+  "questions": [
+    "干预改变报告时，如何区分措辞变化和下游计算真正改变？",
+    "如果把同一套 J-lens 和 swap 实验迁移到开源模型、多语言模型或视觉语言模型，哪些功能属性最先失效？",
+    "如果模型使用非词表化的关系结构承载推理，现有 J-space 读出会漏掉多少关键状态？"
+  ],
+  "references": [
+    {
+      "citation": "Wes Gurnee 等．Verbalizable Representations Form a Global Workspace in Language Models",
+      "url": "https://transformer-circuits.pub/2026/workspace/index.html"
+    }
+  ]
+}
