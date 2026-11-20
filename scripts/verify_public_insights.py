@@ -58,7 +58,12 @@ def verify(repository, commit, site):
     articles = index["articles"]
     nav = {"/": "index.html", "/insights/": "insights/index.html", "/insights/timeline/": "insights/timeline/index.html", "/insights/tags/": "insights/tags/index.html"}
     by_url = {f"/insights/{a['slug']}/": a for a in articles}
-    paths = list(nav.items()) + [(p, p[1:]) for p in ("/insights/home-fragment.html", "/assets/css/insights.css", "/assets/css/reading-catalog.css", "/assets/js/reading-catalog.js", "/insights/feed.xml", "/insights/index.json")]
+    assets = ("/insights/home-fragment.html", "/assets/css/insights.css", "/assets/css/reading-catalog.css",
+              "/assets/js/reading-catalog.js", "/assets/css/reading-timeline.css", "/assets/js/reading-timeline.js",
+              "/assets/vendor/vis-timeline-8.5.6/vis-timeline-graph2d.min.js", "/assets/vendor/vis-timeline-8.5.6/vis-timeline-graph2d.min.css",
+              "/insights/feed.xml", "/insights/index.json")
+    assets += tuple(f"/assets/vendor/noto-sans-sc/reading-{part}.woff2" for part in range(1, 6))
+    paths = list(nav.items()) + [(p, p[1:]) for p in assets]
     paths += [(u, u[1:] + "index.html") for u in by_url]
 
     def check(pair):
@@ -140,7 +145,7 @@ def main():
         with tempfile.TemporaryDirectory() as directory:
             script = Path(directory) / "check_reading_ui.mjs"
             script.write_bytes(fetch(f"https://raw.githubusercontent.com/{args.repository}/{args.commit}/scripts/check_reading_ui.mjs"))
-            subprocess.run(["node", str(script)], env={**os.environ, "READING_SITE": args.site}, check=True, timeout=100)
+            subprocess.run(["node", str(script)], env={**os.environ, "READING_SITE": args.site}, check=True, timeout=180)
 
 
 if __name__ == "__main__":

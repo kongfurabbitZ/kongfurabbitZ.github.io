@@ -42,10 +42,12 @@ python3 -B scripts/public_insights.py --repo . --article /本机工作区/public
 
 ## 论文研读、甘特图和标签
 
-/insights/ 收录研读与报告，/insights/tags/ 收录本站全部现用标签，/insights/timeline/ 按北京时间列出论文研读入库日。日期来自私人阅读库的页面创建时间。单日用圆点展示，并链接至公开正文。正式发布日期与研读入库日分别保存。访客可以用 tag、kind、q 和时间轴的 month 参数分享筛选结果；month=all 展示全部年份。首页也可以直接选标签。
+/insights/ 收录研读与报告，/insights/tags/ 收录全站标签。/insights/timeline/ 依照北京时间的入库日展示论文，按研究主题分行，支持日、周、月、季、年与全览。相近记录按当前尺度合并，点击卡片进入文章或选择组内论文。网页可分享当前时间范围与筛选，旧链接 month=all 和 month=YYYY-MM 仍可打开。
 
 一篇公开论文沿用原文章字段，另外包含 reading 对象。day 为 ISO 日历日，key 为稳定的来源记录摘要，revision 为来源修订摘要，identity 为 pdf 或 bibliography。论文以具体研究主题和方法标记，报告沿用各自的标签。更新已有内容须保留原 slug、source_id、首次发布时间和记录身份。只以书目校验的历史材料采用规范文献链接摘要，不将其当作 PDF 文件摘要。
 
 构建入口仍为 scripts/public_insights.py。查询、点图、标签、RSS 与首页都由 content/insights/ 下的全部公开稿生成；有新增或修订时应带上当前所有稿件重建。分页读取私人来源，按每篇正文独立编辑、核对书目信息，只将通过公开审阅的内容放到本站。共享主题与方法使用同一标签名。来源更新时先匹配记录摘要，再核对源身份和既有网址。核验工作流同时检查所有文章及导航，并在两种屏幕宽度实测筛选与跳转。
 
 首页沿用既有入口文件。assets/js/main.js 会在原研究栏目加载 insights/home-fragment.html，此片段与每次发布同步重建。网络加载失败时访客仍能从首页进入静态文章目录。新建的内容页统一通过主页的联系入口联系作者。
+
+时间轴使用本站托管的 vis-timeline 8.5.6。源码标签为 v8.5.6，官方预构建发布树为 8c5ddefcfbc51bace61758a7526d8f7e57696f10，保留原版许可。重建时从同一提交取完整 scripts 和 assets，包含 reading_catalog.TIMELINE_ASSETS 列出的样式、交互脚本及 assets/vendor/vis-timeline-8.5.6。浏览器直接读取本站文件。缺少中文系统字体时使用本站托管的 Noto Sans SC（Fontsource 5.3.1，SIL OFL 1.1）。将上游 99c8c932bbb29d808fdd82b45ae4ac65e37f57f7 的 7,946 个字符按 Unicode 划为五个 WOFF2 分区，完整保留覆盖范围。字体和许可位于 assets/vendor/noto-sans-sc/，与头像一样作为站点静态资源随版本保留。
