@@ -5,7 +5,7 @@
   "title": "自驱实验室的自主性，应该按什么分级？",
   "description": "自动移液、自动选实验和自主设定研究目标，对应不同能力。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "tags": [
     "论文",
     "主题·AI科学研究",
@@ -16,7 +16,7 @@
     "day": "2026-07-05",
     "key": "4299154a1f34a2839e15e64bc17b4d9b55d567d39a84a0a5c57169a69c10dff5",
     "identity": "bibliography",
-    "revision": "7c462b08eb093be3fbfa3f497acd9711602a13dc08d0e2c5ee6d429bfce5830d"
+    "revision": "c32becf262abb9c773a86e4f90d1701a5d936ca3cd31d589ad58a34b64ff7f7f"
   },
   "lead": "自动移液、自动选实验和自主设定研究目标，对应不同能力。化学与材料领域的案例让这些差异可以按仪器接口、决策环节和人类介入点逐项比较。",
   "sections": [

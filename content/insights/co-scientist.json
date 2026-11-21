@@ -5,18 +5,18 @@
   "title": "科学假设经过模型间辩论后，还需要什么验证？",
   "description": "Co-Scientist 把生成候选解释、相互评议和排序放进同一研究流程。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "tags": [
     "论文",
     "主题·AI科学研究",
     "方法·科研智能体",
-    "方法·闭环实验"
+    "方法·科研自动化"
   ],
   "reading": {
     "day": "2026-07-05",
     "key": "13344b10c2809825675ff5f2f5e8ce8b02a5af22828d1438f10b71cff515fa5e",
     "identity": "bibliography",
-    "revision": "6cbe986ad35cc20f80707503a277c7014290ef331606135d0f0a3a484713943c"
+    "revision": "ab39be23c5621bd732ab4c758994513cd625b3f658d92c70ceb34681d859f88f"
   },
   "lead": "Co-Scientist 把生成候选解释、相互评议和排序放进同一研究流程。模型认可、专家偏好和独立实验回答不同层次的问题，比较系统时要分别记录。",
   "sections": [

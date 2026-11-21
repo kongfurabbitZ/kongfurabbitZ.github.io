@@ -5,18 +5,19 @@
   "title": "本体规范可以在不同系统间无损翻译吗？",
   "description": "Ontolingua 把共享概念写成独立规范，再映射到具体表示语言。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "tags": [
     "论文",
     "主题·本体与知识表示",
-    "方法·语义互操作",
-    "方法·形式语义"
+    "方法·本体工程",
+    "方法·知识共享",
+    "方法·语义互操作"
   ],
   "reading": {
     "day": "2026-07-07",
     "key": "288ef0952f409bd28a2958f2d9681353df275668a19c1e6f0f8f50dc1f8dcf2d",
     "identity": "pdf",
-    "revision": "fa318945d1b58fc6f2dfc95fb2a085fb55bc86a9d563e78e514d321f03f22b88"
+    "revision": "d3b0b2a44f4b0e4159a279d4c7ddfe8f8aa7aa0aa306bd66ebf41504f06a7882"
   },
   "lead": "Ontolingua 把共享概念写成独立规范，再映射到具体表示语言。可移植性取决于目标语言能表达哪些约束，以及哪些语义在翻译中需要额外检查。",
   "sections": [

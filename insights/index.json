@@ -735,22 +735,23 @@
       "title": "本体规范可以在不同系统间无损翻译吗？",
       "description": "Ontolingua 把共享概念写成独立规范，再映射到具体表示语言。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·本体与知识表示",
-        "方法·语义互操作",
-        "方法·形式语义"
+        "方法·本体工程",
+        "方法·知识共享",
+        "方法·语义互操作"
       ],
       "reading": {
         "day": "2026-07-07",
         "key": "288ef0952f409bd28a2958f2d9681353df275668a19c1e6f0f8f50dc1f8dcf2d",
         "identity": "pdf",
-        "revision": "fa318945d1b58fc6f2dfc95fb2a085fb55bc86a9d563e78e514d321f03f22b88"
+        "revision": "d3b0b2a44f4b0e4159a279d4c7ddfe8f8aa7aa0aa306bd66ebf41504f06a7882"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/portable-ontology/",
-      "content_sha256": "814a013c923da51ce3df5acef5355ebbd76267e4cda34072367303a16c6be300"
+      "content_sha256": "f8da800fce11b03a08570d33d992e4ca78dc28e95ff5a68a5972cb1d8fefb8fa"
     },
     {
       "slug": "organisation-ontology",
@@ -781,22 +782,23 @@
       "title": "建立共享本体，要经过哪些设计判断？",
       "description": "这篇综述把概念澄清、获取、表达与应用联系起来。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·本体与知识表示",
         "方法·本体工程",
-        "方法·知识共享"
+        "方法·本体评估",
+        "方法·语义互操作"
       ],
       "reading": {
         "day": "2026-07-07",
         "key": "ac3371de282dafb9d927276f156313ccc37c331cd6258ed9896ce13b4b038d62",
         "identity": "pdf",
-        "revision": "88e0a211c902b8d2ad83707119f32e96451f796207d0a70e05e23f20bc06eb6c"
+        "revision": "75970a2fadea21e0c4e58013ee0cb82cd4b792e7c5ad43f3c2b8e49dfa6949fb"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ontology-methods-applications/",
-      "content_sha256": "96c42c81d426ad39971f3dff7fcc51362272dd397645c31da9155f4c956f23da"
+      "content_sha256": "6c02bd3693e6fa391a4ab4876827f6cc5dd67c110a01ca29108b1aa31d2418ec"
     },
     {
       "slug": "ontology-design-principles",
@@ -804,7 +806,7 @@
       "title": "共享本体该规定多少，才能容纳不同用途？",
       "description": "Gruber 提出的设计原则把清晰性、一致性、扩展性和最小承诺放在一起。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·本体与知识表示",
@@ -815,11 +817,11 @@
         "day": "2026-07-07",
         "key": "e05944281821b0f90ec853c4039c0efb7beab3e99734a769f0d570485aad3bb8",
         "identity": "pdf",
-        "revision": "9cca6409c61da3ec79b588e474c9a968ae3091a5470698780093928efde77213"
+        "revision": "7d64c4466e062d9c902bbabbf79de85c6d548d70a01e2e554fc267f0b447a270"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ontology-design-principles/",
-      "content_sha256": "c17a27777ca2666f8f83c37db6ea3cd77f6284f9d130aacac101042ec896aa48"
+      "content_sha256": "df15ad791686c1215bf7030bf2cdc989100d49fc5c837b503f9b74a8127d352a"
     },
     {
       "slug": "ontology-competency-questions",
@@ -827,22 +829,23 @@
       "title": "用能力问题验收一套本体",
       "description": "先写下系统必须回答的问题，再决定哪些概念和公理值得进入模型。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·本体与知识表示",
+        "方法·本体工程",
         "方法·本体评估",
-        "方法·本体工程"
+        "方法·企业建模"
       ],
       "reading": {
         "day": "2026-07-07",
         "key": "35755ed68c2e766435954b9267b576f73d00d187bad2456e9b8052622d709759",
         "identity": "pdf",
-        "revision": "f10e4a6c4ae86d9c323ed194915fc55367584ac1366f0341d426f76e3b7fcc91"
+        "revision": "35e3ebe5d2bf1c5c40e610fec8cc39a1417efa4e86c738e31c3811d3f37195f6"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ontology-competency-questions/",
-      "content_sha256": "4d5f28b57aee97bb06c2290be3fa192aab2d5ee4bce1875adcab68ba6ed120f9"
+      "content_sha256": "3424ed5b659f7c165e0366f46e2644133e9409596d8b51e5374fc649e99fe35f"
     },
     {
       "slug": "formal-ontology",
@@ -873,22 +876,23 @@
       "title": "企业本体怎样把活动、角色和目标放在一起？",
       "description": "Enterprise Ontology 用一套共同词汇描述企业活动，使参与者可以核对模型里的承诺。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·本体与知识表示",
+        "方法·本体工程",
         "方法·企业建模",
-        "方法·知识共享"
+        "方法·语义互操作"
       ],
       "reading": {
         "day": "2026-07-07",
         "key": "a8af4a76f9b35c6cc1c0a20531ac9a346f8679935988cacec296a38e4daf6ea2",
         "identity": "pdf",
-        "revision": "550734fc94d3aeecf41b2b2be691dc8323575633a5b624105fd4234d87b3177d"
+        "revision": "bdf3787b9c546082eeeab07bdf1a8403fc3ccf5a1153fa13e0e9a59916195c52"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/enterprise-ontology/",
-      "content_sha256": "70c4e19cec8e259f8a7f9d94f8faeee0f830ed518d00d57ae23f1882189e8541"
+      "content_sha256": "2089a3dea589933cd08b4cd67b1a9ccaf37786b5eacd8d0ac7310dd0147a0d03"
     },
     {
       "slug": "self-driving-laboratories",
@@ -896,7 +900,7 @@
       "title": "自驱实验室的自主性，应该按什么分级？",
       "description": "自动移液、自动选实验和自主设定研究目标，对应不同能力。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·AI科学研究",
@@ -907,11 +911,11 @@
         "day": "2026-07-05",
         "key": "4299154a1f34a2839e15e64bc17b4d9b55d567d39a84a0a5c57169a69c10dff5",
         "identity": "bibliography",
-        "revision": "7c462b08eb093be3fbfa3f497acd9711602a13dc08d0e2c5ee6d429bfce5830d"
+        "revision": "c32becf262abb9c773a86e4f90d1701a5d936ca3cd31d589ad58a34b64ff7f7f"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/self-driving-laboratories/",
-      "content_sha256": "0e0921348292f60fdcc696d304084dbd0202c59ed8acac1d7b3f383742ed004c"
+      "content_sha256": "fc95e41f86343afcc619b94db381cb9a714ce7be1da716883c371b23b511469b"
     },
     {
       "slug": "co-scientist",
@@ -919,22 +923,22 @@
       "title": "科学假设经过模型间辩论后，还需要什么验证？",
       "description": "Co-Scientist 把生成候选解释、相互评议和排序放进同一研究流程。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·AI科学研究",
         "方法·科研智能体",
-        "方法·闭环实验"
+        "方法·科研自动化"
       ],
       "reading": {
         "day": "2026-07-05",
         "key": "13344b10c2809825675ff5f2f5e8ce8b02a5af22828d1438f10b71cff515fa5e",
         "identity": "bibliography",
-        "revision": "6cbe986ad35cc20f80707503a277c7014290ef331606135d0f0a3a484713943c"
+        "revision": "ab39be23c5621bd732ab4c758994513cd625b3f658d92c70ceb34681d859f88f"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/co-scientist/",
-      "content_sha256": "eb171b5d50d73f9c62923025e45b62cddb968ee4ccd03b83fcb27d2decaaca32"
+      "content_sha256": "c7c51bfdf0bfda2fcd5a6eb096ff0d6691354a59427ea3a89c6a4c59a0abcac0"
     },
     {
       "slug": "v-bounce-sdlc",
@@ -987,22 +991,23 @@
       "title": "让架构决策和验收示例参与 AI 编程",
       "description": "Shift-Up 尝试让行为示例、架构图和决策记录成为生成与检查代码的依据。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·AI原生软件工程",
         "方法·工程护栏",
-        "方法·代码智能体"
+        "方法·软件生命周期",
+        "方法·人机协作"
       ],
       "reading": {
         "day": "2026-07-03",
         "key": "d5c10966f023c256db031ea4eb882303002121e4d04afce3c554173f122cd4b8",
         "identity": "pdf",
-        "revision": "d0d23944273a340285696ea04f1681904a230f901e199a0fd684629ae1ac92f1"
+        "revision": "bbf75452f5fc7cd32239912c293bc6a295516350028c6e654fdcc0472a1dc36a"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/shift-up-guardrails/",
-      "content_sha256": "cff9d62a9c49c69f95ad2f930f0209e4ee6fd60bcc5a5ac65802876744088361"
+      "content_sha256": "cef63326ec567d4e333c599110e86f3c351affff88f28e71b2627a0acc270d6d"
     },
     {
       "slug": "se-three-roadmap",
@@ -1010,22 +1015,22 @@
       "title": "意图驱动的软件工程还缺哪些工具？",
       "description": "SE 3.0 把意图表达、协作环境、编译和运行支持放入同一张研究路线图。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·AI原生软件工程",
         "方法·软件范式",
-        "方法·软件生命周期"
+        "方法·人机协作"
       ],
       "reading": {
         "day": "2026-07-03",
         "key": "8ea176dded57d3741c8ab3cd9e4ae4b1b71f7d7b25692bbf0dd5749b8637fa12",
         "identity": "pdf",
-        "revision": "69437bdf283f9fbd287dc8ebba9e30d2cdf0d66ecf216a9740cb2e47059134fb"
+        "revision": "253b0297c3032a2a7e9b0d643e2ef4b11cb2552f59c953fda8c774719b7a028c"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/se-three-roadmap/",
-      "content_sha256": "1629bddab6bded7defc76d8676805be8d06611f65aad3f2b4c8b6ae59729bc90"
+      "content_sha256": "d83c85b79cba00b34241c44064f916a0eb38f1b9e7f25b620ef62d056bc694ae"
     },
     {
       "slug": "react-reasoning-acting",
@@ -1124,22 +1129,22 @@
       "title": "当代码更容易生成，软件工程教育怎样评价判断力？",
       "description": "这篇论文从从业者、教育者与新入行工程师的角度讨论工作重组。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-21",
       "tags": [
         "论文",
         "主题·AI原生软件工程",
         "方法·人机协作",
-        "方法·软件研发效能"
+        "方法·软件范式"
       ],
       "reading": {
         "day": "2026-07-03",
         "key": "a8760eeffb17d368309966883c60858070342b6a831d4fca1042c90260203ffd",
         "identity": "pdf",
-        "revision": "a7a0b6ea406fc7a56989271c41585825c751e3db31cdba725fe73bca4f070483"
+        "revision": "d2ea7c36de9e9dcb434433591f46d817e4882e7f2240d4f4d4be7aa8de282154"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ai-native-engineering-workforce/",
-      "content_sha256": "94fe4884bee315afbc311f532327f585591b729ecd6fc3cdb16c618d3795abac"
+      "content_sha256": "440c132e89ac43034726c84ce4da01115a2270ec46fa0b9a7e30430e474b7a3a"
     },
     {
       "slug": "xgboost-systems",

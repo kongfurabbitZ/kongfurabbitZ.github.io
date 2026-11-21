@@ -5,18 +5,19 @@
   "title": "企业本体怎样把活动、角色和目标放在一起？",
   "description": "Enterprise Ontology 用一套共同词汇描述企业活动，使参与者可以核对模型里的承诺。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "tags": [
     "论文",
     "主题·本体与知识表示",
+    "方法·本体工程",
     "方法·企业建模",
-    "方法·知识共享"
+    "方法·语义互操作"
   ],
   "reading": {
     "day": "2026-07-07",
     "key": "a8af4a76f9b35c6cc1c0a20531ac9a346f8679935988cacec296a38e4daf6ea2",
     "identity": "pdf",
-    "revision": "550734fc94d3aeecf41b2b2be691dc8323575633a5b624105fd4234d87b3177d"
+    "revision": "bdf3787b9c546082eeeab07bdf1a8403fc3ccf5a1153fa13e0e9a59916195c52"
   },
   "lead": "Enterprise Ontology 用一套共同词汇描述企业活动，使参与者可以核对模型里的承诺。应用时需要检查定义能否支持跨部门共同推理，以及为此增加了多少维护工作。",
   "sections": [

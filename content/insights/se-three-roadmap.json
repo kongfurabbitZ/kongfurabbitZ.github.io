@@ -5,18 +5,18 @@
   "title": "意图驱动的软件工程还缺哪些工具？",
   "description": "SE 3.0 把意图表达、协作环境、编译和运行支持放入同一张研究路线图。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-21",
   "tags": [
     "论文",
     "主题·AI原生软件工程",
     "方法·软件范式",
-    "方法·软件生命周期"
+    "方法·人机协作"
   ],
   "reading": {
     "day": "2026-07-03",
     "key": "8ea176dded57d3741c8ab3cd9e4ae4b1b71f7d7b25692bbf0dd5749b8637fa12",
     "identity": "pdf",
-    "revision": "69437bdf283f9fbd287dc8ebba9e30d2cdf0d66ecf216a9740cb2e47059134fb"
+    "revision": "253b0297c3032a2a7e9b0d643e2ef4b11cb2552f59c953fda8c774719b7a028c"
   },
   "lead": "SE 3.0 把意图表达、协作环境、编译和运行支持放入同一张研究路线图。阅读这类愿景时，可逐项追踪哪些部件已有实验，哪些仍是待实现的接口。",
   "sections": [
