@@ -5,18 +5,17 @@
   "title": "智能体该记住什么，又该何时忘记？",
   "description": "记忆的载体、服务的任务以及写入和遗忘规则，决定同一段经历何时能再次帮上忙。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "tags": [
     "论文",
     "主题·智能体与工具",
-    "方法·智能体记忆",
-    "方法·上下文工程"
+    "方法·智能体记忆"
   ],
   "reading": {
     "day": "2026-07-12",
     "key": "0f5dbde4f558484b17c03c8e37f036d932057eabc3a62d2d41314dcfec8889ca",
     "identity": "bibliography",
-    "revision": "fa1f3693b366165da656b7cc8d7f11d85dd31d68abf6cd94c50f5e1da7ad563c"
+    "revision": "e5bb7f68071fb8f0982097a1eee0f7fc71e6baa73852156e449062fbee58bea2"
   },
   "lead": "记忆的载体、服务的任务以及写入和遗忘规则，决定同一段经历何时能再次帮上忙。这份综述提供了比较不同记忆设计的共同坐标。",
   "sections": [

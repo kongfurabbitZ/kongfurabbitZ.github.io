@@ -5,17 +5,18 @@
   "title": "继续预训练，语料应该贴近行业还是贴近任务？",
   "description": "领域语料和具体任务语料各带来一种分布信息。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "tags": [
     "论文",
     "主题·训练与对齐",
-    "方法·持续预训练"
+    "方法·持续预训练",
+    "方法·数据筛选"
   ],
   "reading": {
     "day": "2026-07-14",
     "key": "0bb097d80055939dfc13ebe8dedb9ce70ae2313cf03c7cef79d424b0f680c1a9",
     "identity": "pdf",
-    "revision": "9a6a5166d07762e1b4aee8f73dd2cb1bd690500a0b72c2607beaef51b66d3748"
+    "revision": "2fd1b586bc54d79faf5880aa7b6a8b5e0ed14a65628a755e49dfa3df1dd1711d"
   },
   "lead": "领域语料和具体任务语料各带来一种分布信息。同一训练方法换一批语料可能出现收益也可能发生负迁移，相关性需要在目标任务上实际度量。",
   "sections": [

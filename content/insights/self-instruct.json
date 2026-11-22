@@ -5,18 +5,19 @@
   "title": "Self-Instruct 如何把少量示范变成指令数据？",
   "description": "从人工种子任务出发，模型生成新指令和样例，再经筛选进入微调。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "tags": [
     "论文",
     "主题·训练与对齐",
+    "方法·合成训练数据",
     "方法·指令微调",
-    "方法·合成训练数据"
+    "方法·数据筛选"
   ],
   "reading": {
     "day": "2026-07-14",
     "key": "e0a17a5227e7636c47eddd325ea0b711c1f1fc19886f8a7ca0f55f24a5bc9a3f",
     "identity": "pdf",
-    "revision": "2914287224830baa50751c959ccacb5879dcfdeecbbab3b5d329a22d0314a77d"
+    "revision": "5dd8f205c6b188c839c39855c49bf768ad9a28b2524e6eb16d605fc5f8e1fc1f"
   },
   "lead": "从人工种子任务出发，模型生成新指令和样例，再经筛选进入微调。生成的规模很直观，决定可迁移性的还有种子覆盖、重复任务和评价方式。",
   "sections": [

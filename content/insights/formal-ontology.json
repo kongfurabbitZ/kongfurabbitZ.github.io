@@ -5,18 +5,19 @@
   "title": "相同的字段名，为什么仍可能指向不同事物？",
   "description": "Guarino 借助形式本体说明，信息系统之间共享词汇还需要共享关于世界的假设。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "tags": [
     "论文",
     "主题·本体与知识表示",
     "方法·形式语义",
+    "方法·知识表示",
     "方法·语义互操作"
   ],
   "reading": {
     "day": "2026-07-07",
     "key": "3cb65c70574feb259462512ab164d13bf9cb3083b988e237f1b7043db7a57777",
     "identity": "pdf",
-    "revision": "59fc2c3ef0e760f1f52fb86f0d688d1a702126c0516bd8c7ada23dbf2cefded7"
+    "revision": "854ec1c3fe210fffb152410d96222fe531b2503d63b533bda44163eec48cde8b"
   },
   "lead": "Guarino 借助形式本体说明，信息系统之间共享词汇还需要共享关于世界的假设。对象身份、依赖关系和类别边界会决定两个系统能否正确互译。",
   "sections": [

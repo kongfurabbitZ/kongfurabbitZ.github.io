@@ -5,18 +5,19 @@
   "title": "少量标签怎样沿着图结构帮助分类？",
   "description": "GCN 的一阶传播层把邻居与自身特征加权组合，让标签稀少的节点也能借到局部结构的信息。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-22",
   "tags": [
     "论文",
     "主题·图学习",
+    "方法·图神经网络",
     "方法·图卷积",
-    "方法·图神经网络"
+    "方法·谱方法"
   ],
   "reading": {
     "day": "2026-07-09",
     "key": "f3ff980fb8accc0907cd3c382395cf9f5ccc2967992db905ad8d0d5a48af4b16",
     "identity": "pdf",
-    "revision": "86de0febd263e487b367edea4a2a69a1e6e729b1afc0c22a7d2aeaf13baa6301"
+    "revision": "c0a7c35ae6fc4fd85983fa298817305db7a988605cbe2ab82f3265f8a7b643f9"
   },
   "lead": "GCN 的一阶传播层把邻居与自身特征加权组合，让标签稀少的节点也能借到局部结构的信息。邻居关系表达什么，直接决定传播有益还是有害。",
   "sections": [
