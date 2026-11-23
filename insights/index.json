@@ -2,6 +2,23 @@
   "schema_version": 1,
   "articles": [
     {
+      "slug": "agentic-it-organization-capacity-allocation-2026",
+      "source_id": "116cb1ebe90f6fbd18da8e107652e637d1a5a37f6efcb083d80d94910517a98b",
+      "title": "智能体让小队更快以后，企业怎样分配释放的产能",
+      "description": "从奥纬咨询的组织设计报告出发，讨论联邦权责、审查瓶颈和净产能如何变成可验收结果。",
+      "published": "2026-11-23",
+      "updated": "2026-11-23",
+      "tags": [
+        "智能体",
+        "组织设计",
+        "IT运营",
+        "AI价值"
+      ],
+      "kind": "report",
+      "url": "https://kongfurabbitz.github.io/insights/agentic-it-organization-capacity-allocation-2026/",
+      "content_sha256": "3c1cba7b77efd3fc4d0a771d103de0ac1e04c5c740e17a1eacc6786d49bb5a10"
+    },
+    {
       "slug": "odacell-aqueous",
       "source_id": "4a86a65d04fd01874173429337632b1ed133d451dcb171bc6a4443cbe5fd6f77",
       "title": "ODACell 2 如何用全电池试验筛选水系电解液？",
