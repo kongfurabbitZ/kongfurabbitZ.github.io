@@ -2,6 +2,24 @@
   "schema_version": 1,
   "articles": [
     {
+      "slug": "high-quality-datasets-enterprise-operating-model",
+      "source_id": "a646bbe604f1df78b5a9a4677abc589371754c7f165a2c97b2e4c80cfec3788f",
+      "title": "一家企业怎样积累真正可用的数据集",
+      "description": "从一条设备告警到一个可复用的数据产品，拆解高质量数据集的生产、独立评测与组织分工。",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "tags": [
+        "高质量数据集",
+        "数据治理",
+        "企业架构",
+        "人工智能",
+        "工业制造"
+      ],
+      "kind": "report",
+      "url": "https://kongfurabbitz.github.io/insights/high-quality-datasets-enterprise-operating-model/",
+      "content_sha256": "de88538ad048a4d97cc980d6e3795fa44f8b49879f08deddf2eee02ed2999fb2"
+    },
+    {
       "slug": "agentic-it-organization-capacity-allocation-2026",
       "source_id": "116cb1ebe90f6fbd18da8e107652e637d1a5a37f6efcb083d80d94910517a98b",
       "title": "智能体让小队更快以后，企业怎样分配释放的产能",
