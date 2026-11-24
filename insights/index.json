@@ -291,7 +291,7 @@
       "title": "AI 加速自己的研发，需要满足哪些条件？",
       "description": "软件改进能否带来下一轮有效研发投入，取决于实验、算力和研究难度的共同变化。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·AI科学研究",
@@ -301,11 +301,11 @@
         "day": "2026-10-16",
         "key": "90afe40e51aa642cdad56f4f6b8ddf71da7e39a9a7fa46f1314172f28f594acc",
         "identity": "pdf",
-        "revision": "3a57a5b02d60398ba3930366f0b9041ac1cb58ad02fd5086f22616322991120a"
+        "revision": "f852277855d5f2b7e859827d23186029c49517943e4c05c4479db3f88fb5d888"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ai-research-acceleration/",
-      "content_sha256": "019efe72346f4764f19c6907a07526737c8eb7b2eedf7024719a06dad031d084"
+      "content_sha256": "a1398bc4789dac9af7b369ff8c386a4db28bfcc5016a78012371cd02ef9a692e"
     },
     {
       "slug": "how-organizations-use-ai",
@@ -313,7 +313,7 @@
       "title": "企业买了 AI 之后，哪些岗位真正用起来？",
       "description": "企业是否采购、员工是否活跃、工具是否改变产出，是三种不同的观测。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·组织采用与工作",
@@ -324,11 +324,11 @@
         "day": "2026-10-09",
         "key": "516808a0267d03440a71a50e3a12efd095fd2a841eba5ed31c98583ab81733a0",
         "identity": "pdf",
-        "revision": "89b2dfe24731f8cab0bc4a023c2af6912229f3e7cc76ba38e20e17970cf66c79"
+        "revision": "992a6778f6172e783cc6fb2d081dee2b713d464c540a7df015131c923b056b0a"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/how-organizations-use-ai/",
-      "content_sha256": "754bfc80169dc6737f91122279a477a29bd2553c9d90126e31449cd5ee741c17"
+      "content_sha256": "72fdd0a28680583bffb9e08cf19d5446c6b09e65f071d6c89efc1fdfee750381"
     },
     {
       "slug": "reliability-to-fit",
@@ -359,7 +359,7 @@
       "title": "学习者在做选择，还是只在完成流程？",
       "description": "这套学习设计框架把目光放在学习者能否建立联结、提出值得追究的问题并掌握选择权。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·学习科学与认知",
@@ -370,11 +370,11 @@
         "day": "2026-09-28",
         "key": "b8a6df654aa05964a791bca38211dcd72ff295d9dc6eba3795d17f00571f7a0b",
         "identity": "bibliography",
-        "revision": "f528934bfc3818f427326e0f00a2eb1192eee018c02694124ffefd757b5e63e1"
+        "revision": "614864f5fecdcc8ca56f4b873745ad3f5dd00624e4a9dafc85350bd678d7f90f"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/powerful-learning/",
-      "content_sha256": "dd5f85b2405fa6a080ce3e8a98f5d793caaa5ae0760b39d659b856b7dbe6ec21"
+      "content_sha256": "56d4a8a2697dc7504fa62539b49ff3115ddd9f26de741bb677efa31a35136028"
     },
     {
       "slug": "jepa-anything",
@@ -382,22 +382,22 @@
       "title": "跨领域预测可以共用哪一层表示？",
       "description": "JEPA-Anything 在潜在空间预测未来状态，并把目标拆成互补部分。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·世界模型与具身智能",
-        "方法·预测表征",
-        "方法·世界模型"
+        "方法·世界模型",
+        "方法·预测表征"
       ],
       "reading": {
         "day": "2026-09-22",
         "key": "6a207ea3bec094b86e57ca7ca0c4da0d5d5fd26b8508349c30d1d715aee5e76e",
         "identity": "pdf",
-        "revision": "1a6f43b06a9375b3474c8957cf6af80b984e9ada26cb0be0a27ebea51074f21c"
+        "revision": "7e35ffbb10301212e9e6dc04f1a4f8e9999fecae32348394ff5ec279b73f9426"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/jepa-anything/",
-      "content_sha256": "3a65ee903b5b504719dad7db12b6b91fe8c0267a98796bd30e7b5a52b76bb40d"
+      "content_sha256": "1a36f4cd64fe9fd0d2348c75e6c00efecfb45b5ba1570950e7b57388f20f979a"
     },
     {
       "slug": "ai-sub-saharan-africa",
@@ -428,23 +428,23 @@
       "title": "Spider 2.0 为什么让企业 SQL 题变难了？",
       "description": "真实的数据问题往往得先找表、读文档、理解代码，再写查询。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·企业数据问答",
         "方法·Text-to-SQL",
-        "方法·基准评测",
-        "方法·企业数据"
+        "方法·企业数据",
+        "方法·基准评测"
       ],
       "reading": {
         "day": "2026-08-25",
         "key": "f796c9c5b1347519a4665fa54fa34527c822fba9029ffca5641c3285d62a4d10",
         "identity": "pdf",
-        "revision": "bcebea5cadd61db5b9e88dbeb645c35b9019c41bf510f972bbb636cf7c5885b5"
+        "revision": "89aa6473f0eb1e7e725355a1dd124cd796dd1f826b5bd71975190ddef730bb00"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/spider-two/",
-      "content_sha256": "b462ffb197dd2236c68d2cbd91d67b7f1a0bfb1d585c385b38334db2ae888af3"
+      "content_sha256": "091bc29ddee95d312c28edfb427331523651ffa3f1dae88cbfabdeaf047b0c55"
     },
     {
       "slug": "semantic-layer-nl2sql",
@@ -452,23 +452,23 @@
       "title": "让 AI 查企业数据库，语义层解决了哪一步？",
       "description": "语义层为模型提供可复用的业务定义和连接关系，智能体再补齐复杂查询。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·企业数据问答",
-        "方法·语义层",
         "方法·Text-to-SQL",
+        "方法·语义层",
         "方法·企业数据"
       ],
       "reading": {
         "day": "2026-08-25",
         "key": "ad99661f5d7def313d65d61ebad18001ea64420ee7a81546433bd8a0948d8d5e",
         "identity": "pdf",
-        "revision": "27463f4fae0834b3a85c78a0cf036f924dd9ac33aa922e885ca2883fcfbf63ba"
+        "revision": "c5c3ef38d4a17f0ba816f9d1f79a01bd6bf8ef40c7a33dd4e8571d9a46e47c6d"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/semantic-layer-nl2sql/",
-      "content_sha256": "aaf954144edc52c5ceabf5fcca2e43fa4bb61de74d3c1b27fe04f94c682f90a8"
+      "content_sha256": "cb10bca9b9d101e2ee06ce6a14451803776beb4b57f773f3aa9fa5fa68c6f768"
     },
     {
       "slug": "bitter-lesson-data-filtering",
@@ -476,7 +476,7 @@
       "title": "筛掉低质量数据，什么时候反而会损失信号？",
       "description": "在数据量受限且可以反复训练时，筛选策略可能顺手删掉稀有模式。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·训练与对齐",
@@ -486,11 +486,11 @@
         "day": "2026-08-25",
         "key": "2722c022d9c2230b8880be19065fa58cc9557371efc32750e6e71fc4cd1abb6c",
         "identity": "pdf",
-        "revision": "3e2778111f481f27a15f2b77d5a42ef05588403e682705ed01ac8685710a5d8a"
+        "revision": "56984348056e9826a42b38064054cf6eef9fd37963e31509928edd63cd77ff78"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/bitter-lesson-data-filtering/",
-      "content_sha256": "f0b17a1c610d535c8f04dfba4147fdef0c368fa1acba938ac62c216f48cb2319"
+      "content_sha256": "73dd0ddf0b2b9a110c84f9f9dfdbf4aa6f4b433c0f8c7a2944d3f82520017f5b"
     },
     {
       "slug": "responsible-ai-practices",
@@ -498,7 +498,7 @@
       "title": "负责任 AI 在企业里，谁有权改变一次决策？",
       "description": "六年间的产业研究展现出越来越多的专职角色、工具和流程。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·治理与社会影响",
@@ -508,11 +508,11 @@
         "day": "2026-08-19",
         "key": "dd1796ffa4aff12b669b9584f0ebbe57a2e8004fba8b326194dba769d68068d5",
         "identity": "bibliography",
-        "revision": "44c54369a19685d721501923f291c07416050eb1e13718ad4035a2b30dce21aa"
+        "revision": "4b92afb4c541a02d1703d5db9fcb9f9822cab469cdc3d05fdb364f4bd7145ea1"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/responsible-ai-practices/",
-      "content_sha256": "a083a7a3917d58e6d7fa26f7c1f4c9580935c59502d598af528651d2606e0f15"
+      "content_sha256": "079af36b39b00082b065321399d567d1c2c2eca15974d8ae1a01ff0c354f5297"
     },
     {
       "slug": "answer-engines-thin-records",
@@ -520,7 +520,7 @@
       "title": "公开记录越少，AI 回答为什么越容易出错？",
       "description": "研究者用同一组问题比较多个回答引擎。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
         "主题·评测与可靠性",
@@ -531,11 +531,11 @@
         "day": "2026-08-07",
         "key": "655d3b410519867925f9c4469c90352411ca3f0e9b2bcc0244d967eb89589885",
         "identity": "bibliography",
-        "revision": "e8fa63c510dc34ab936abe641012c7c6adde7f944c1683d62db1f1c7cd31e6ee"
+        "revision": "21d2311a843cdf74a78249f1b00a95f36fee9a47cecb1cc59bdb689fae07de76"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/answer-engines-thin-records/",
-      "content_sha256": "dd7312586fb658a06555ba8a37f650258834c86d027a85e14569c74514f14c5c"
+      "content_sha256": "054a716ed1af41c2f44ceadb3bdc216354cdb7fbfa09ccd7352ce803f9dd0a86"
     },
     {
       "slug": "agentsociety-two",
@@ -543,21 +543,22 @@
       "title": "用智能体做社会实验，怎样验证结果？",
       "description": "AgentSociety 2 把提出假设、组织模拟和分析结果接到一起。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-24",
       "tags": [
         "论文",
-        "主题·治理与社会影响",
-        "方法·社会模拟"
+        "主题·AI科学研究",
+        "方法·科研智能体",
+        "方法·科研自动化"
       ],
       "reading": {
         "day": "2026-07-27",
         "key": "74306fb4ffe6a0cfa049e4dfd9561847136dfb8e532a1f52494db517eb43cad2",
         "identity": "pdf",
-        "revision": "4e07d1adc20245089a74b7a38570a8dab5c4d18bd143f116ce1a476a2d7c0c12"
+        "revision": "78016831c5cbc84bf8ccc3529525a74b8c3e14127e56403d6432b9063801be51"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/agentsociety-two/",
-      "content_sha256": "3bdd58962396426371fca73368094747ce56bb925a099eca757f7a1985e7e3c8"
+      "content_sha256": "a3b4a409646d59b275adfecaa658c10ed14b3c1721c72cc2c7cff0c7fc464dc0"
     },
     {
       "slug": "self-instruct",

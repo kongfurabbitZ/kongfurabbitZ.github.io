@@ -5,18 +5,18 @@
   "title": "跨领域预测可以共用哪一层表示？",
   "description": "JEPA-Anything 在潜在空间预测未来状态，并把目标拆成互补部分。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-24",
   "tags": [
     "论文",
     "主题·世界模型与具身智能",
-    "方法·预测表征",
-    "方法·世界模型"
+    "方法·世界模型",
+    "方法·预测表征"
   ],
   "reading": {
     "day": "2026-09-22",
     "key": "6a207ea3bec094b86e57ca7ca0c4da0d5d5fd26b8508349c30d1d715aee5e76e",
     "identity": "pdf",
-    "revision": "1a6f43b06a9375b3474c8957cf6af80b984e9ada26cb0be0a27ebea51074f21c"
+    "revision": "7e35ffbb10301212e9e6dc04f1a4f8e9999fecae32348394ff5ec279b73f9426"
   },
   "lead": "JEPA-Anything 在潜在空间预测未来状态，并把目标拆成互补部分。跨领域复用同一原则很有吸引力，检验时仍需逐层区分表示质量、递推能力与行动收益。",
   "sections": [

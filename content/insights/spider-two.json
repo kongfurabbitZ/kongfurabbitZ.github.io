@@ -5,19 +5,19 @@
   "title": "Spider 2.0 为什么让企业 SQL 题变难了？",
   "description": "真实的数据问题往往得先找表、读文档、理解代码，再写查询。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-24",
   "tags": [
     "论文",
     "主题·企业数据问答",
     "方法·Text-to-SQL",
-    "方法·基准评测",
-    "方法·企业数据"
+    "方法·企业数据",
+    "方法·基准评测"
   ],
   "reading": {
     "day": "2026-08-25",
     "key": "f796c9c5b1347519a4665fa54fa34527c822fba9029ffca5641c3285d62a4d10",
     "identity": "pdf",
-    "revision": "bcebea5cadd61db5b9e88dbeb645c35b9019c41bf510f972bbb636cf7c5885b5"
+    "revision": "89aa6473f0eb1e7e725355a1dd124cd796dd1f826b5bd71975190ddef730bb00"
   },
   "lead": "真实的数据问题往往得先找表、读文档、理解代码，再写查询。Spider 2.0 把这些步骤一起纳入评测，使失败原因可以沿整个工作流程追溯。",
   "sections": [

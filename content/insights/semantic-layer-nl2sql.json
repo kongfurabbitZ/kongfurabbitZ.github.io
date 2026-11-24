@@ -5,19 +5,19 @@
   "title": "让 AI 查企业数据库，语义层解决了哪一步？",
   "description": "语义层为模型提供可复用的业务定义和连接关系，智能体再补齐复杂查询。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-24",
   "tags": [
     "论文",
     "主题·企业数据问答",
-    "方法·语义层",
     "方法·Text-to-SQL",
+    "方法·语义层",
     "方法·企业数据"
   ],
   "reading": {
     "day": "2026-08-25",
     "key": "ad99661f5d7def313d65d61ebad18001ea64420ee7a81546433bd8a0948d8d5e",
     "identity": "pdf",
-    "revision": "27463f4fae0834b3a85c78a0cf036f924dd9ac33aa922e885ca2883fcfbf63ba"
+    "revision": "c5c3ef38d4a17f0ba816f9d1f79a01bd6bf8ef40c7a33dd4e8571d9a46e47c6d"
   },
   "lead": "语义层为模型提供可复用的业务定义和连接关系，智能体再补齐复杂查询。看待高分时，既要算模型能力，也要算人工准备语义层和维护这些定义的成本。",
   "sections": [

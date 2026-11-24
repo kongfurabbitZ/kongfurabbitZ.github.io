@@ -5,17 +5,18 @@
   "title": "用智能体做社会实验，怎样验证结果？",
   "description": "AgentSociety 2 把提出假设、组织模拟和分析结果接到一起。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-24",
   "tags": [
     "论文",
-    "主题·治理与社会影响",
-    "方法·社会模拟"
+    "主题·AI科学研究",
+    "方法·科研智能体",
+    "方法·科研自动化"
   ],
   "reading": {
     "day": "2026-07-27",
     "key": "74306fb4ffe6a0cfa049e4dfd9561847136dfb8e532a1f52494db517eb43cad2",
     "identity": "pdf",
-    "revision": "4e07d1adc20245089a74b7a38570a8dab5c4d18bd143f116ce1a476a2d7c0c12"
+    "revision": "78016831c5cbc84bf8ccc3529525a74b8c3e14127e56403d6432b9063801be51"
   },
   "lead": "AgentSociety 2 把提出假设、组织模拟和分析结果接到一起。实验可以运行和复现之后，下一道难题是模拟参与者呈现的机制能否在独立观察中再现。",
   "sections": [

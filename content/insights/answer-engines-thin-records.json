@@ -5,7 +5,7 @@
   "title": "公开记录越少，AI 回答为什么越容易出错？",
   "description": "研究者用同一组问题比较多个回答引擎。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-24",
   "tags": [
     "论文",
     "主题·评测与可靠性",
@@ -16,7 +16,7 @@
     "day": "2026-08-07",
     "key": "655d3b410519867925f9c4469c90352411ca3f0e9b2bcc0244d967eb89589885",
     "identity": "bibliography",
-    "revision": "e8fa63c510dc34ab936abe641012c7c6adde7f944c1683d62db1f1c7cd31e6ee"
+    "revision": "21d2311a843cdf74a78249f1b00a95f36fee9a47cecb1cc59bdb689fae07de76"
   },
   "lead": "研究者用同一组问题比较多个回答引擎。公开材料稀薄时，错误与过度肯定容易同时出现，因此资料覆盖程度本身也应成为事实核查的一项指标。",
   "sections": [
