@@ -5,18 +5,18 @@
   "title": "一家 AI 公司的招聘变化，能说明什么？",
   "description": "Anthropic 提供了一个罕见的内部观察窗口。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-25",
   "tags": [
     "论文",
     "主题·组织采用与工作",
-    "方法·岗位与技能",
-    "方法·劳动市场"
+    "方法·组织采用",
+    "方法·岗位与技能"
   ],
   "reading": {
     "day": "2026-11-02",
     "key": "34f0d9474623c82b9e162e63b9519efe7f6eab2a5966a76a73e0b142cef72502",
     "identity": "pdf",
-    "revision": "fb8781ff9b246abe72a5f1e8e8a173042163ce3c9027e584c41b48ea7de3599d"
+    "revision": "599ae02b35ecb239e3b74055b1114143fe60368b8c946bcf87852ff2f52f6654"
   },
   "lead": "Anthropic 提供了一个罕见的内部观察窗口。技术产出、初级岗位入口和资深员工的审核负担可以同时变化，任何一条曲线都不足以单独解释就业总量。",
   "sections": [

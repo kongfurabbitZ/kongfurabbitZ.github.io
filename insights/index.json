@@ -200,22 +200,21 @@
       "title": "当软件在运行时选择下一步，验收应该怎么变？",
       "description": "把流程中的选择交给智能体，意味着开发时写下的目标和边界，要在运行时经得起检验。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-25",
       "tags": [
         "论文",
         "主题·智能体与工具",
-        "方法·软件范式",
-        "方法·执行控制"
+        "方法·软件范式"
       ],
       "reading": {
         "day": "2026-11-09",
         "key": "6d434ae9b12c1c069fd4b51c4e75ffce866d27d6618d297d0bfc34c4aadb6735",
         "identity": "pdf",
-        "revision": "6b74f042e478cd6c5b5ebacaa082b114f1a7e1a81125aa61571a4e537e2b92a7"
+        "revision": "6a3c1f80d35b134df6e2f14653ad37c27e0fde8c09044779a88a67d9311025e8"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/agentic-software/",
-      "content_sha256": "500c8f3742f659377f1b3bc1507a6e6a8473da0c28dd79077ef04b29baf60cc4"
+      "content_sha256": "7016edd44aba844d16c41e5bf56131aad86ec06a436fe7d0fccce082712bbf8a"
     },
     {
       "slug": "just-in-time-rl",
@@ -223,21 +222,22 @@
       "title": "不更新模型参数，智能体怎样从上一次行动中学习？",
       "description": "JitRL 在采取行动前，用过去的回报调整候选动作的排序。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-25",
       "tags": [
         "论文",
-        "主题·训练与对齐",
-        "方法·强化学习"
+        "主题·智能体与工具",
+        "方法·智能体记忆",
+        "方法·执行控制"
       ],
       "reading": {
         "day": "2026-11-02",
         "key": "05c3ba4f75b9aa4db72d74b001e2c3bd0563e9aa2c7cf9329b3b6cc5bb0aaa30",
         "identity": "pdf",
-        "revision": "24cbaa4e6fc01f1bc50f6c64d2d1d36a94dece33600cef422b3ccedcf5297dce"
+        "revision": "8c3c0abfb5d6d1a4b50f95fe1aeab947a2330157d82163288d14f0d1e1cd74ed"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/just-in-time-rl/",
-      "content_sha256": "615bc23020b06f596a0aee5082d2956827332823450b9bbd9ccc792e2b05be15"
+      "content_sha256": "442a1e633b1f3bf29641fda29d6db78972267047fd2d0328c980b208712a48a1"
     },
     {
       "slug": "employment-at-anthropic",
@@ -245,22 +245,22 @@
       "title": "一家 AI 公司的招聘变化，能说明什么？",
       "description": "Anthropic 提供了一个罕见的内部观察窗口。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-25",
       "tags": [
         "论文",
         "主题·组织采用与工作",
-        "方法·岗位与技能",
-        "方法·劳动市场"
+        "方法·组织采用",
+        "方法·岗位与技能"
       ],
       "reading": {
         "day": "2026-11-02",
         "key": "34f0d9474623c82b9e162e63b9519efe7f6eab2a5966a76a73e0b142cef72502",
         "identity": "pdf",
-        "revision": "fb8781ff9b246abe72a5f1e8e8a173042163ce3c9027e584c41b48ea7de3599d"
+        "revision": "599ae02b35ecb239e3b74055b1114143fe60368b8c946bcf87852ff2f52f6654"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/employment-at-anthropic/",
-      "content_sha256": "4544552150f37d502aa19cede4198111d214073d3f55c5b881f957762613ca5f"
+      "content_sha256": "25be09cd813c4029baa15455b86a2a911e51b634bb3e28736626ff56ef843d71"
     },
     {
       "slug": "ai-expectations-gap",
@@ -268,7 +268,7 @@
       "title": "公众和前沿实验室对 AI 的预期，差在哪里？",
       "description": "同一项能力预测，落到就业判断时还要经过采用速度、任务替代和员工调整。",
       "published": "2026-11-20",
-      "updated": "2026-11-20",
+      "updated": "2026-11-25",
       "tags": [
         "论文",
         "主题·组织采用与工作",
@@ -279,11 +279,11 @@
         "day": "2026-11-02",
         "key": "b7da56fef479c62fc18ac818ff64249d56f2c13fc5b4be9fe4adfd33e228907a",
         "identity": "pdf",
-        "revision": "6f166421c601add98a3441262d61060250d687d7f846c770c9311b95d2d6ea0c"
+        "revision": "5924c1b04b6a960a440d2cfb03fb9f3c6c03b5faaa8baa3c903127cce79c5e99"
       },
       "kind": "paper",
       "url": "https://kongfurabbitz.github.io/insights/ai-expectations-gap/",
-      "content_sha256": "8b5fd46ecb502aa2be2f8dc8c574c5a9350eeeeaacf94715f7bee4846a4a65bf"
+      "content_sha256": "8f141e9adbe58933b98ded5c8a0526c48a7d6179a043abfe503b046ee5992386"
     },
     {
       "slug": "ai-research-acceleration",

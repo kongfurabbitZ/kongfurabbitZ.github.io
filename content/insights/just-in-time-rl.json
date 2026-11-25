@@ -5,17 +5,18 @@
   "title": "不更新模型参数，智能体怎样从上一次行动中学习？",
   "description": "JitRL 在采取行动前，用过去的回报调整候选动作的排序。",
   "published": "2026-11-20",
-  "updated": "2026-11-20",
+  "updated": "2026-11-25",
   "tags": [
     "论文",
-    "主题·训练与对齐",
-    "方法·强化学习"
+    "主题·智能体与工具",
+    "方法·智能体记忆",
+    "方法·执行控制"
   ],
   "reading": {
     "day": "2026-11-02",
     "key": "05c3ba4f75b9aa4db72d74b001e2c3bd0563e9aa2c7cf9329b3b6cc5bb0aaa30",
     "identity": "pdf",
-    "revision": "24cbaa4e6fc01f1bc50f6c64d2d1d36a94dece33600cef422b3ccedcf5297dce"
+    "revision": "8c3c0abfb5d6d1a4b50f95fe1aeab947a2330157d82163288d14f0d1e1cd74ed"
   },
   "lead": "JitRL 在采取行动前，用过去的回报调整候选动作的排序。检验这种适应能力，需要给各基线相同的基础模型和相同的测试时学习机会。",
   "sections": [
